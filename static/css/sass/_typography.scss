@@ -7,67 +7,80 @@
 /* FONT PATH
  * -------------------------- */
 @font-face {
-  font-family: 'DINPro-Light';
-  src: url('../fonts/din/DINPro-Light.eot?#iefix') format('embedded-opentype'),  
-       url('../fonts/din/DINPro-Light.otf')  format('opentype'),
-       url('../fonts/din/DINPro-Light.woff') format('woff'), 
-       url('../fonts/din/DINPro-Light.ttf')  format('truetype'), 
-       url('../fonts/din/DINPro-Light.svg#DINPro-Light') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'RobotoLight';
+    src: url('../fonts/roboto/RobotoLight.eot');
+    src: url('../fonts/roboto/RobotoLight.eot') format('embedded-opentype'),
+         url('../fonts/roboto/RobotoLight.woff2') format('woff2'),
+         url('../fonts/roboto/RobotoLight.woff') format('woff'),
+         url('../fonts/roboto/RobotoLight.ttf') format('truetype'),
+         url('../fonts/roboto/RobotoLight.svg#RobotoLight') format('svg');
 }
 @font-face {
-  font-family: 'DINPro-Regular';
-  src: url('../fonts/din/DINPro-Regular.eot?#iefix') format('embedded-opentype'),  
-       url('../fonts/din/DINPro-Regular.otf')  format('opentype'),
-       url('../fonts/din/DINPro-Regular.woff') format('woff'), 
-       url('../fonts/din/DINPro-Regular.ttf')  format('truetype'), 
-       url('../fonts/din/DINPro-Regular.svg#DINPro-Regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'DINPro-Medium';
-  src: url('../fonts/din/DINPro-Medium.eot?#iefix') format('embedded-opentype'),  
-       url('../fonts/din/DINPro-Medium.otf')  format('opentype'),
-       url('../fonts/din/DINPro-Medium.woff') format('woff'), 
-       url('../fonts/din/DINPro-Medium.ttf')  format('truetype'),
-       url('../fonts/din/DINPro-Medium.svg#DINPro-Medium') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'DINPro-Bold';
-  src: url('../fonts/din/DINPro-Bold.eot?#iefix') format('embedded-opentype'),  
-       url('../fonts/din/DINPro-Bold.otf')  format('opentype'),
-       url('../fonts/din/DINPro-Bold.woff') format('woff'), 
-       url('../fonts/din/DINPro-Bold.ttf')  format('truetype'), 
-       url('../fonts/din/DINPro-Bold.svg#DINPro-Bold') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'RobotoRegular';
+    src: url('../fonts/roboto/RobotoRegular.eot');
+    src: url('../fonts/roboto/RobotoRegular.eot') format('embedded-opentype'),
+         url('../fonts/roboto/RobotoRegular.woff2') format('woff2'),
+         url('../fonts/roboto/RobotoRegular.woff') format('woff'),
+         url('../fonts/roboto/RobotoRegular.ttf') format('truetype'),
+         url('../fonts/roboto/RobotoRegular.svg#RobotoRegular') format('svg');
 }
 
 @font-face {
-  font-family: 'DINPro-Black';
-  src: url('../fonts/din/DINPro-Black.eot?#iefix') format('embedded-opentype'),  
-       url('../fonts/din/DINPro-Black.otf')  format('opentype'),
-       url('../fonts/din/DINPro-Black.woff') format('woff'), 
-       url('../fonts/din/DINPro-Black.ttf')  format('truetype'), 
-       url('../fonts/din/DINPro-Black.svg#DINPro-Black') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'RobotoMedium';
+    src: url('../fonts/roboto/RobotoMedium.eot');
+    src: url('../fonts/roboto/RobotoMedium.eot') format('embedded-opentype'),
+         url('../fonts/roboto/RobotoMedium.woff2') format('woff2'),
+         url('../fonts/roboto/RobotoMedium.woff') format('woff'),
+         url('../fonts/roboto/RobotoMedium.ttf') format('truetype'),
+         url('../fonts/roboto/RobotoMedium.svg#RobotoMedium') format('svg');
+}
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('../fonts/roboto/RobotoBold.eot');
+    src: url('../fonts/roboto/RobotoBold.eot') format('embedded-opentype'),
+         url('../fonts/roboto/RobotoBold.woff2') format('woff2'),
+         url('../fonts/roboto/RobotoBold.woff') format('woff'),
+         url('../fonts/roboto/RobotoBold.ttf') format('truetype'),
+         url('../fonts/roboto/RobotoBold.svg#RobotoBold') format('svg');
 }
 
-
+@font-face {
+    font-family: 'RobotoBlack';
+    src: url('../fonts/roboto/RobotoBlack.eot');
+    src: url('../fonts/roboto/RobotoBlack.eot') format('embedded-opentype'),
+         url('../fonts/roboto/RobotoBlack.woff2') format('woff2'),
+         url('../fonts/roboto/RobotoBlack.woff') format('woff'),
+         url('../fonts/roboto/RobotoBlack.ttf') format('truetype'),
+         url('../fonts/roboto/RobotoBlack.svg#RobotoBlack') format('svg');
+}
+@font-face {
+    font-family: 'texgyrescholaregular';
+    src: url('../fonts/texgyreschola/texgyrescholaregular.eot');
+    src: url('../fonts/texgyreschola/texgyrescholaregular.eot') format('embedded-opentype'),
+         url('../fonts/texgyreschola/texgyrescholaregular.woff2') format('woff2'),
+         url('../fonts/texgyreschola/texgyrescholaregular.woff') format('woff'),
+         url('../fonts/texgyreschola/texgyrescholaregular.ttf') format('truetype'),
+         url('../fonts/texgyreschola/texgyrescholaregular.svg#texgyrescholaregular') format('svg');
+}
+@font-face {
+    font-family: 'texgyrescholabold';
+    src: url('../fonts/texgyreschola/texgyrescholabold.eot');
+    src: url('../fonts/texgyreschola/texgyrescholabold.eot') format('embedded-opentype'),
+         url('../fonts/texgyreschola/texgyrescholabold.woff2') format('woff2'),
+         url('../fonts/texgyreschola/texgyrescholabold.woff') format('woff'),
+         url('../fonts/texgyreschola/texgyrescholabold.ttf') format('truetype'),
+         url('../fonts/texgyreschola/texgyrescholabold.svg#texgyrescholabold') format('svg');
+}
 /* Open Sans Font */
-$primary-fonts-light:                    'DINPro-Light', Arial, sans-serif;
-$primary-fonts-regular:                  'DINPro-Regular', Arial, sans-serif; 
-$primary-fonts-medium:                   'DINPro-Medium', Arial, sans-serif; 
+$primary-fonts-light:                    'RobotoLight', Arial, sans-serif;
+$primary-fonts-regular:                  'RobotoRegular', Arial, sans-serif; 
+$primary-fonts-medium:                   'RobotoMedium', Arial, sans-serif; 
 //$primary-fonts-semiBold:                 'RalewaySemiBold', Arial, sans-serif;
-$primary-fonts-bold:                     'DINPro-Bold', Arial, sans-serif;
-$primary-fonts-black:                    'DINPro-Black', Arial, sans-serif;
+$primary-fonts-bold:                     'RobotoBold', Arial, sans-serif;
+$primary-fonts-black:                    'RobotoBlack', Arial, sans-serif;
+
+$secondary-fonts-regular:                'texgyrescholaregular', Arial, sans-serif;
+$secondary-fonts-bold:                   'texgyrescholabold', Arial, sans-serif;
 
 
 

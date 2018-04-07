@@ -131,30 +131,33 @@ table {
 /* FONT PATH
  * -------------------------- */
 @font-face {
-  font-family: 'DINPro-Light';
-  src: url("../fonts/din/DINPro-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-Light.otf") format("opentype"), url("../fonts/din/DINPro-Light.woff") format("woff"), url("../fonts/din/DINPro-Light.ttf") format("truetype"), url("../fonts/din/DINPro-Light.svg#DINPro-Light") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+  font-family: 'RobotoLight';
+  src: url("../fonts/roboto/RobotoLight.eot");
+  src: url("../fonts/roboto/RobotoLight.eot") format("embedded-opentype"), url("../fonts/roboto/RobotoLight.woff2") format("woff2"), url("../fonts/roboto/RobotoLight.woff") format("woff"), url("../fonts/roboto/RobotoLight.ttf") format("truetype"), url("../fonts/roboto/RobotoLight.svg#RobotoLight") format("svg"); }
 @font-face {
-  font-family: 'DINPro-Regular';
-  src: url("../fonts/din/DINPro-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-Regular.otf") format("opentype"), url("../fonts/din/DINPro-Regular.woff") format("woff"), url("../fonts/din/DINPro-Regular.ttf") format("truetype"), url("../fonts/din/DINPro-Regular.svg#DINPro-Regular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+  font-family: 'RobotoRegular';
+  src: url("../fonts/roboto/RobotoRegular.eot");
+  src: url("../fonts/roboto/RobotoRegular.eot") format("embedded-opentype"), url("../fonts/roboto/RobotoRegular.woff2") format("woff2"), url("../fonts/roboto/RobotoRegular.woff") format("woff"), url("../fonts/roboto/RobotoRegular.ttf") format("truetype"), url("../fonts/roboto/RobotoRegular.svg#RobotoRegular") format("svg"); }
 @font-face {
-  font-family: 'DINPro-Medium';
-  src: url("../fonts/din/DINPro-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-Medium.otf") format("opentype"), url("../fonts/din/DINPro-Medium.woff") format("woff"), url("../fonts/din/DINPro-Medium.ttf") format("truetype"), url("../fonts/din/DINPro-Medium.svg#DINPro-Medium") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+  font-family: 'RobotoMedium';
+  src: url("../fonts/roboto/RobotoMedium.eot");
+  src: url("../fonts/roboto/RobotoMedium.eot") format("embedded-opentype"), url("../fonts/roboto/RobotoMedium.woff2") format("woff2"), url("../fonts/roboto/RobotoMedium.woff") format("woff"), url("../fonts/roboto/RobotoMedium.ttf") format("truetype"), url("../fonts/roboto/RobotoMedium.svg#RobotoMedium") format("svg"); }
 @font-face {
-  font-family: 'DINPro-Bold';
-  src: url("../fonts/din/DINPro-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-Bold.otf") format("opentype"), url("../fonts/din/DINPro-Bold.woff") format("woff"), url("../fonts/din/DINPro-Bold.ttf") format("truetype"), url("../fonts/din/DINPro-Bold.svg#DINPro-Bold") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+  font-family: 'RobotoBold';
+  src: url("../fonts/roboto/RobotoBold.eot");
+  src: url("../fonts/roboto/RobotoBold.eot") format("embedded-opentype"), url("../fonts/roboto/RobotoBold.woff2") format("woff2"), url("../fonts/roboto/RobotoBold.woff") format("woff"), url("../fonts/roboto/RobotoBold.ttf") format("truetype"), url("../fonts/roboto/RobotoBold.svg#RobotoBold") format("svg"); }
 @font-face {
-  font-family: 'DINPro-Black';
-  src: url("../fonts/din/DINPro-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/din/DINPro-Black.otf") format("opentype"), url("../fonts/din/DINPro-Black.woff") format("woff"), url("../fonts/din/DINPro-Black.ttf") format("truetype"), url("../fonts/din/DINPro-Black.svg#DINPro-Black") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+  font-family: 'RobotoBlack';
+  src: url("../fonts/roboto/RobotoBlack.eot");
+  src: url("../fonts/roboto/RobotoBlack.eot") format("embedded-opentype"), url("../fonts/roboto/RobotoBlack.woff2") format("woff2"), url("../fonts/roboto/RobotoBlack.woff") format("woff"), url("../fonts/roboto/RobotoBlack.ttf") format("truetype"), url("../fonts/roboto/RobotoBlack.svg#RobotoBlack") format("svg"); }
+@font-face {
+  font-family: 'texgyrescholaregular';
+  src: url("../fonts/texgyreschola/texgyrescholaregular.eot");
+  src: url("../fonts/texgyreschola/texgyrescholaregular.eot") format("embedded-opentype"), url("../fonts/texgyreschola/texgyrescholaregular.woff2") format("woff2"), url("../fonts/texgyreschola/texgyrescholaregular.woff") format("woff"), url("../fonts/texgyreschola/texgyrescholaregular.ttf") format("truetype"), url("../fonts/texgyreschola/texgyrescholaregular.svg#texgyrescholaregular") format("svg"); }
+@font-face {
+  font-family: 'texgyrescholabold';
+  src: url("../fonts/texgyreschola/texgyrescholabold.eot");
+  src: url("../fonts/texgyreschola/texgyrescholabold.eot") format("embedded-opentype"), url("../fonts/texgyreschola/texgyrescholabold.woff2") format("woff2"), url("../fonts/texgyreschola/texgyrescholabold.woff") format("woff"), url("../fonts/texgyreschola/texgyrescholabold.ttf") format("truetype"), url("../fonts/texgyreschola/texgyrescholabold.svg#texgyrescholabold") format("svg"); }
 /* Open Sans Font */
 strong, .strong {
   font-weight: 700; }
@@ -168,33 +171,33 @@ em, .em {
   text-decoration: none; }
 
 html, body {
-  font-family: "DINPro-Medium", Arial, sans-serif;
+  font-family: "RobotoMedium", Arial, sans-serif;
   font-size: 1rem;
   color: #d8d8d8; }
 
 h1, h2, h3 {
-  font-family: "DINPro-Regular", Arial, sans-serif; }
+  font-family: "RobotoRegular", Arial, sans-serif; }
 
 h4, h5, h6 {
-  font-family: "DINPro-Regular", Arial, sans-serif; }
+  font-family: "RobotoRegular", Arial, sans-serif; }
 
 .form-section h2 {
-  font-family: "DINPro-Regular", Arial, sans-serif; }
+  font-family: "RobotoRegular", Arial, sans-serif; }
 
 .header-heading {
   margin-bottom: 15px; }
 
-.font-light {
-  font-family: "DINPro-Light", Arial, sans-serif; }
+.font-light, .footer-bottom__navigation a {
+  font-family: "RobotoLight", Arial, sans-serif; }
 
 .font-regular, .getForm__wrapper-form p, .banner__section__content--title, .banner__section__content--description, .table--customized tbody td span, .cta-wrap__action .cta-wrap__main--description, .cta-wrap__about .cta-wrap__main--title, .cta-wrap__about .cta-wrap__main--description {
-  font-family: "DINPro-Regular", Arial, sans-serif; }
+  font-family: "RobotoRegular", Arial, sans-serif; }
 
 .font-medium, .getForm__wrapper-form .title, .cta-wrap__action .cta-wrap__main--title {
-  font-family: "DINPro-Medium", Arial, sans-serif; }
+  font-family: "RobotoMedium", Arial, sans-serif; }
 
-.font-bold, .table--customized thead th, .table--customized tbody td, .footer__main__content--heading, .cta-wrap__main--description {
-  font-family: "DINPro-Bold", Arial, sans-serif; }
+.font-bold, .table--customized thead th, .table--customized tbody td, .cta-wrap__main--description {
+  font-family: "RobotoBold", Arial, sans-serif; }
 
 a, a:link, a:visited, a:active {
   color: inherit;
@@ -340,7 +343,7 @@ body {
   height: auto;
   background: #ffffff none repeat scroll 0 0;
   color: #333333;
-  font-family: "DINPro-Medium", Arial, sans-serif;
+  font-family: "RobotoMedium", Arial, sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -602,7 +605,7 @@ ul li, ol li {
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
-  font-family: "DINPro-Regular", Arial, sans-serif; }
+  font-family: "RobotoRegular", Arial, sans-serif; }
   .button--small {
     padding: 0.625rem 1rem;
     font-size: 0.875rem;
@@ -1115,55 +1118,14 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
 /* Page Footer section
 ================================ */
 .footer {
-  background: rgba(149, 156, 172, 0.15) none repeat scroll 0 0; }
-  .footer__main {
-    padding: 2.5rem 0rem; }
-    .footer__main__content--logo a {
-      display: block;
-      width: 180px; }
-      @media screen and (max-width: 991px) {
-        .footer__main__content--logo a {
-          width: 140px; } }
-    @media screen and (max-width: 767px) {
-      .footer__main__content--logo {
-        margin-bottom: 0.9375rem; } }
-    .footer__main__content--heading {
-      color: #a0a0a2;
-      margin: 2.5rem 0rem 0.9375rem;
-      font-size: 0.875rem;
-      line-height: 1.05rem; }
-      @media screen and (max-width: 991px) {
-        .footer__main__content--heading {
-          margin: 2.1875rem 0rem 0.9375rem; } }
-      @media screen and (max-width: 767px) {
-        .footer__main__content--heading {
-          margin: 0.9375rem 0rem; } }
-    .footer__main__content--menu li {
-      margin-bottom: 9px; }
-      .footer__main__content--menu li a {
-        font-size: 0.875rem;
-        line-height: 1.05rem;
-        transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        -webkit-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        color: #a0a0a2; }
-        .footer__main__content--menu li a:hover, .footer__main__content--menu li a:focus {
-          color: #00a6ce; }
-    .footer__main__content--social-media a {
-      color: #203d7c;
-      transition: all 0.3s ease;
-      -moz-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      -webkit-transition: all 0.3s ease;
-      -ms-transition: all 0.3s ease; }
-      .footer__main__content--social-media a + a {
-        margin-left: 0.625rem; }
-      .footer__main__content--social-media a:hover, .footer__main__content--social-media a:focus {
-        color: #00a6ce; }
-  .footer__bottom {
-    border-top: 1px solid #bbbcbe;
+  background: #000000 none repeat scroll 0 0;
+  padding: 3.75rem 0rem 2.5rem; }
+  .footer-logo {
+    margin-bottom: 25px; }
+    .footer-logo a {
+      width: 185px;
+      display: block; }
+  .footer-bottom {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-flex;
@@ -1178,44 +1140,20 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     -moz-align-items: center;
     -ms-align-items: center;
     align-items: center;
-    padding: 0.75rem 0rem; }
-    @media screen and (max-width: 767px) {
-      .footer__bottom {
-        -webkit-flex-direction: column;
-        -moz-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        -ms-box-orient: vertical;
-        box-orient: vertical; } }
-    .footer__bottom--ls {
-      color: #a0a0a2;
-      font-size: 0.75rem;
-      line-height: 0.9rem;
-      letter-spacing: 0.2px; }
-    @media screen and (max-width: 767px) {
-      .footer__bottom--navigation {
-        margin-top: 0.5rem; } }
-    .footer__bottom--navigation a {
-      font-size: 0.75rem;
-      line-height: 0.9rem;
-      letter-spacing: 0.2px;
-      color: #a0a0a2;
-      transition: all 0.3s ease;
-      -moz-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      -webkit-transition: all 0.3s ease;
-      -ms-transition: all 0.3s ease; }
-      .footer__bottom--navigation a + a:before {
+    font-size: 0.875rem;
+    line-height: 1.05rem; }
+    .footer-bottom__navigation a {
+      color: #ffffff;
+      letter-spacing: 0.4px; }
+      .footer-bottom__navigation a:not(.hide) + a:before {
         content: '|';
-        margin: 0rem 0.625rem;
-        color: #a0a0a2; }
-        @media screen and (max-width: 767px) {
-          .footer__bottom--navigation a + a:before {
-            margin: 0rem 0.3125rem; } }
-      .footer__bottom--navigation a:hover, .footer__bottom--navigation a:focus {
-        color: #00a6ce; }
+        margin: 0rem 0.625rem; }
+    .footer-bottom__social a {
+      color: #ffffff;
+      font-size: 1.0625rem;
+      line-height: 1.275rem; }
+      .footer-bottom__social a:not(.hide) + a {
+        margin-left: 0.9375rem; }
 
 /* Page Footer section
 ================================ */
@@ -1450,7 +1388,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
         line-height: 1.35rem;
         overflow: hidden;
         max-height: 120px;
-        font-family: "DINPro-Bold", Arial, sans-serif;
+        font-family: "RobotoBold", Arial, sans-serif;
         color: #505050;
         padding-bottom: 0.3125rem; }
         @media screen and (max-width: 767px) {
@@ -1465,7 +1403,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
         background: none repeat scroll 0 0; }
       .card__view--content .content__section-category {
         color: #505050;
-        font-family: "DINPro-Regular", Arial, sans-serif;
+        font-family: "RobotoRegular", Arial, sans-serif;
         font-size: 0.75rem;
         line-height: 0.9rem;
         text-transform: uppercase;
@@ -1476,7 +1414,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
         max-height: 150px;
         overflow: hidden;
         color: #505050;
-        font-family: "DINPro-Regular", Arial, sans-serif; }
+        font-family: "RobotoRegular", Arial, sans-serif; }
       .card__view--content .content__section-userInfo {
         display: flex;
         align-items: center;
@@ -1757,7 +1695,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     .blog__wrapper-banner-content h3, .blog__wrapper-banner-content h1 {
       font-size: 2.25rem;
       line-height: 2.7rem;
-      font-family: "DINPro-Regular", Arial, sans-serif;
+      font-family: "RobotoRegular", Arial, sans-serif;
       margin-bottom: 10px; }
     .blog__wrapper-banner-content p {
       font-size: 1.25rem;
@@ -1842,7 +1780,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     line-height: 2.64rem;
     letter-spacing: 2px;
     margin-bottom: 5px;
-    font-family: "DINPro-Bold", Arial, sans-serif; }
+    font-family: "RobotoBold", Arial, sans-serif; }
   .user__profile-details p {
     font-size: 1.0625rem;
     line-height: 1.275rem;
@@ -1890,7 +1828,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     font-size: 1.5rem;
     line-height: 1.8rem;
     letter-spacing: 2px;
-    font-family: "DINPro-Regular", Arial, sans-serif;
+    font-family: "RobotoRegular", Arial, sans-serif;
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 15px;
     padding-bottom: 0.3125rem; }
@@ -1899,9 +1837,9 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     line-height: 1.2rem;
     letter-spacing: 1px;
     line-height: 1.83;
-    font-family: "DINPro-Regular", Arial, sans-serif; }
+    font-family: "RobotoRegular", Arial, sans-serif; }
     .user__profile-content p span {
-      font-family: "DINPro-Regular", Arial, sans-serif; }
+      font-family: "RobotoRegular", Arial, sans-serif; }
     .user__profile-content p + h3 {
       margin-top: 30px; }
   .user__profile-content ul {
@@ -1912,7 +1850,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
       letter-spacing: 1px;
       line-height: 1.5;
       margin-left: 20px;
-      font-family: "DINPro-Regular", Arial, sans-serif; }
+      font-family: "RobotoRegular", Arial, sans-serif; }
       .user__profile-content ul li:before {
         content: '-';
         margin-left: -20px;
@@ -1984,7 +1922,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     .user__profile-userInfo .content-section .button {
       width: 80%;
       margin: 15px auto 30px;
-      font-family: "DINPro-Regular", Arial, sans-serif;
+      font-family: "RobotoRegular", Arial, sans-serif;
       font-size: 1.125rem;
       line-height: 1.35rem;
       line-height: 1; }
@@ -2281,7 +2219,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
       -ms-box-orient: vertical;
       box-orient: vertical; } }
 .article__userInfo-date {
-  font-family: "DINPro-Regular", Arial, sans-serif;
+  font-family: "RobotoRegular", Arial, sans-serif;
   letter-spacing: 3px;
   font-size: 0.6875rem;
   line-height: 0.825rem;
@@ -2298,7 +2236,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
   font-size: 2.21875rem;
   line-height: 2.6625rem;
   line-height: 3rem;
-  font-family: "DINPro-Bold", Arial, sans-serif; }
+  font-family: "RobotoBold", Arial, sans-serif; }
 .article__main {
   background: #ffffff none repeat scroll 0 0;
   color: #505050; }
@@ -2428,7 +2366,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
         line-height: 1.125rem;
         padding: 0rem 0rem 0.3125rem;
         line-height: 1.5;
-        font-family: "DINPro-Bold", Arial, sans-serif; }
+        font-family: "RobotoBold", Arial, sans-serif; }
       .article__main-authorSlide-content .designation {
         color: #5e5e5e;
         font-size: 0.75rem;
@@ -2507,7 +2445,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
   .article__main-content h1, .article__main-content h2, .article__main-content h3, .article__main-content h4, .article__main-content h5, .article__main-content h6 {
     line-height: 1.5 !important;
     margin-bottom: 22px !important;
-    font-family: "DINPro-Bold", Arial, sans-serif !important;
+    font-family: "RobotoBold", Arial, sans-serif !important;
     word-wrap: break-word; }
   .article__main-content h1 {
     font-size: 1.875rem;
@@ -2532,7 +2470,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     line-height: 1.2rem;
     line-height: 1.5 !important;
     letter-spacing: 1px !important;
-    font-family: "DINPro-Regular", Arial, sans-serif !important;
+    font-family: "RobotoRegular", Arial, sans-serif !important;
     word-wrap: break-word;
     margin-bottom: 15px !important; }
     .article__main-content p *, .article__main-content li *, .article__main-content a *, .article__main-content span * {
@@ -2540,7 +2478,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
       line-height: 1.2rem;
       line-height: 1.5 !important;
       letter-spacing: 1px !important;
-      font-family: "DINPro-Regular", Arial, sans-serif !important;
+      font-family: "RobotoRegular", Arial, sans-serif !important;
       word-wrap: break-word;
       margin-bottom: 15px !important; }
   .article__main-content a {
@@ -2550,7 +2488,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
-    font-family: "DINPro-Regular", Arial, sans-serif !important;
+    font-family: "RobotoRegular", Arial, sans-serif !important;
     color: #00a6ce; }
     .article__main-content a:hover, .article__main-content a:focus {
       border-color: transparent; }
@@ -2562,7 +2500,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     line-height: 1.5rem;
     line-height: 1.5 !important;
     letter-spacing: 1px !important;
-    font-family: "DINPro-Regular", Arial, sans-serif !important;
+    font-family: "RobotoRegular", Arial, sans-serif !important;
     word-wrap: break-word;
     margin-bottom: 15px !important;
     font-weight: 700 !important;
@@ -2615,7 +2553,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
       list-style-position: outside;
       padding-left: 7px;
       margin-bottom: 10px;
-      font-family: "DINPro-Regular", Arial, sans-serif !important; }
+      font-family: "RobotoRegular", Arial, sans-serif !important; }
       .article__main-content ol li > p, .article__main-content ul li > p {
         margin-bottom: 0px; }
   .article__main-content ul li {
@@ -2623,7 +2561,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     .article__main-content ul li span {
       position: relative;
       left: -22px;
-      font-family: "DINPro-Regular", Arial, sans-serif !important; }
+      font-family: "RobotoRegular", Arial, sans-serif !important; }
   .article__main-content ol li {
     list-style-type: decimal; }
   .article__main-content img {
@@ -2685,7 +2623,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
       color: #ffffff;
       z-index: 30;
       padding: 10px 20px;
-      font-family: "DINPro-Regular", Arial, sans-serif !important; }
+      font-family: "RobotoRegular", Arial, sans-serif !important; }
   .article__main-content figure[style*="right"] {
     margin-right: 0px;
     margin-left: 20px; }

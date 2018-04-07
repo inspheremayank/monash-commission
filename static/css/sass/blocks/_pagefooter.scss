@@ -1,96 +1,43 @@
 /* Page Footer section
 ================================ */
 .footer {
-    background: rgba($darkGrey,0.15) none repeat scroll 0 0;
-    &__main {
-        @include padding(40 0);
-        &__content {
-            &--logo {
-                a {
-                    display: block;
-                    width: 180px;
-                    @media #{$media-ipadPortrait} {
-                        width: 140px;
-                    }
-                }
-                @media #{$media-ipadSmall} {
-                    @include margin-bottom(15);
-                }
-            }
-            &--heading {
-                @extend .font-bold;
-                color: $grey;
-                @include margin(40 0 15);
-                @include font-size(14);
-                @media #{$media-ipadPortrait} {
-                    @include margin(35 0 15);
-                }
-                @media #{$media-ipadSmall} {
-                    @include margin(15 0);
-                }
-            }
-            &--menu {
-                li {
-                    margin-bottom: 9px;
-                    a {
-                        @include font-size(14);
-                        @include transition(all 0.3s ease);
-                        color: $grey;
-                        &:hover, &:focus {
-                            color: $blue;
-                        }
-                    }
-                }
-            }
-            &--social-media {
-                a {
-                    color: $darkBlue;
-                    @include transition(all 0.3s ease);
-                    + a {
-                        @include margin-left(10);
-                    }
-                    &:hover, &:focus {
-                        color: $blue;
-                    }
-                }
-            }
+    background: $zblack none repeat scroll 0 0;
+    @include padding(60 0 40);
+    &-logo {
+        margin-bottom: 25px;
+        a {
+            width: 185px;
+            display: block;
         }
     }
-    &__bottom {
-        border-top: 1px solid $border;
+    &-bottom {
         @include flexbox();
         @include justify-content(space-between);
         @include align-items(center);
-        @include padding(12 0);
-        @media #{$media-ipadSmall} {
-            @include flex-direction(column,vertical);
-        }
-        &--ls {
-            color: $grey;
-            @include font-size(12);
-            letter-spacing: 0.2px;
-        }
-        &--navigation {
-            @media #{$media-ipadSmall} {
-                @include margin-top(8);
-            }
+        @include font-size(14);
+        &__navigation {
             a {
-                @include font-size(12);
-                letter-spacing: 0.2px;
-                color: $grey;
-                @include transition(all 0.3s ease);
-                + a {
-                    &:before {
-                        content: '|';
-                        @include margin(0 10);
-                        color: $grey;
-                        @media #{$media-ipadSmall} {
-                            @include margin(0 5);
+                @extend .font-light;
+                color: $white;
+                letter-spacing: 0.4px;
+                &:not(.hide) {
+                    + a {
+                        &:before {
+                            content: '|';
+                            @include margin(0 10); 
                         }
                     }
                 }
-                &:hover, &:focus {
-                    color: $blue;
+            }
+        }
+        &__social {
+            a {
+                color: $white;
+                @include font-size(17);
+                &:not(.hide) {
+                    + a {
+                        @include margin-left(15);
+                    }
                 }
             }
         }
