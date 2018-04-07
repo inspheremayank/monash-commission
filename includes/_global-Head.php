@@ -20,7 +20,7 @@
 
     <!-- Favicons and Device related Images
     ================================================== -->
-    <link rel="shortcut icon" href="favicon/favicon.svg" />  
+    <link rel="shortcut icon" href="static/favicon/favicon.png" />  
 
     <!-- Stylesheet -->
     <link type="text/css" rel="stylesheet" href="static/css/vendors.css" />

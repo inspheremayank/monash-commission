@@ -6,6 +6,7 @@
 <script type="text/javascript" src="static/plugins/slick/js/slick.min.js"></script>
 <script type="text/javascript" src="static/plugins/fancybox/js/jquery.fancybox.js"></script>
 <script type="text/javascript" src="static/plugins/jquery.ellipsis/js/jquery.ellipsis.js"></script>
+<script type="text/javascript" src="static/plugins/jquery.sticky/js/jquery.sticky.js"></script>
 <!-- End Core Plugins -->
 
 <!-- Begin Page Level Plugins -->

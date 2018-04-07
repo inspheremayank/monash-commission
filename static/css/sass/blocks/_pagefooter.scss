@@ -9,17 +9,29 @@
             width: 185px;
             display: block;
         }
+        @media #{$media-tablet} {
+            text-align: center;
+             a {
+                 width: 120px;
+                 display: inline-block;
+             }
+        }
     }
     &-bottom {
         @include flexbox();
         @include justify-content(space-between);
         @include align-items(center);
         @include font-size(14);
+        @media #{$media-tablet} {
+            @include flex-direction(column,vertical); 
+            @include justify-content(center);
+        }
         &__navigation {
             a {
                 @extend .font-light;
                 color: $white;
                 letter-spacing: 0.4px;
+                @include transition(all 0.3s ease);
                 &:not(.hide) {
                     + a {
                         &:before {
@@ -28,16 +40,29 @@
                         }
                     }
                 }
+                &:hover, &:focus {
+                    color: darken($white,30%);
+                    &:before {
+                        color: $white; 
+                    }
+                }
+            }
+            @media #{$media-tablet} {
+                @include margin-bottom(10);
             }
         }
         &__social {
             a {
                 color: $white;
-                @include font-size(17);
+                @include transition(all 0.3s ease);
+                @include font-size(20);
                 &:not(.hide) {
                     + a {
                         @include margin-left(15);
                     }
+                }
+                &:hover, &:focus {
+                    color: darken($white,30%); 
                 }
             }
         }

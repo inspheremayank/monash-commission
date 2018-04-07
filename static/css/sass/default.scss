@@ -33,7 +33,11 @@ ul li, ol li {
     font-weight: $weightRegular;
 }
 .page__body {
-    @include padding(120px 0 80px);
+    &--wrapper {
+        background: $white none repeat scroll 0 0;
+        @include margin-top(-112);
+        min-height: 150px;
+    }
 }
 .getForm__wrapper {
     background: $greyish none repeat scroll 0 0;
@@ -100,7 +104,8 @@ ul li, ol li {
 @import 'blocks/error';
 @import 'blocks/blog'; 
 @import 'blocks/articles';
-@import 'blocks/modal'; 
+@import 'blocks/modal';
+@import 'blocks/responsiveNavigation';
 @import 'blocks/dependencies_Breakup'; 
 
 /* Pages Includes

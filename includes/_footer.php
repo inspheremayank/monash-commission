@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="footer-logo">
                     <a href="javascript:;">
-                        <img class="img-fluid" src="static/images/logo-white.svg" alt="image" />
+                        <img class="img-fluid" src="static/images/logos/logo-white.svg" alt="image" />
                     </a>
                 </div>
                 <div class="footer-bottom">

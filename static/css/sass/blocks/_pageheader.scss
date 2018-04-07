@@ -1,233 +1,201 @@
 /* Page Header section
 ================================ */
 .header {
-    @include padding(15 0); 
-    z-index: 9999;
-    width: $viewportSize;
-    @include transition(all 0.3s ease);
-    position: relative;
-    background: rgba($white, 0) none repeat scroll 0 0;
-    @include box-shadow(rgba(0,0,0,0) 0px 1px 1.5px 1px);
-    top: 0;
-    left: 0;
-    &__section {
+    background: $zblack none repeat scroll 0 0;
+    @include padding-bottom(112);
+    @media #{$media-ipadPortrait} {
+        position: fixed;
         width: $viewportSize;
-        position: relative;
-        &-left {
-            .main-logo {
+        z-index: 99;
+        @include padding-bottom(0);
+    }
+    &__top {
+        @include padding(25 0 20);
+        border-bottom: 3px solid darken($white,5%);
+        background-image: url('../images/header-band.png');
+        background-repeat: no-repeat;
+        @include background-size(contain);
+        background-position: center right; 
+        &--logo {
+            a {
+                width: 200px;
                 display: block;
-                width: 170px; 
+            }
+        }
+        @media #{$media-ipadPortrait} {
+            display: none;           
+        }
+    }
+    &__main {
+        background: $zblack none repeat scroll 0 0;
+        @include padding(30 0 50);
+        z-index: 99 !important;
+        @media #{$media-ipadPortrait} {
+            @include padding(15 0);
+        }
+        &--logo {
+            width: 0px;
+            @include transition(all 0.3s ease);
+            @media #{$media-ipadPortrait} {
+                width: 110px;
+                a, a img {
+                    display: block;
+                }
+            }
+            a {
+                width: 110px; 
                 @include transition(all 0.3s ease);
-                @media #{$media-ipadPortrait} {
-                    display: none;
+            }
+        }
+        &__wrap {
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(space-between); 
+        }
+        &__navigation {
+            width: $viewportSize;
+            @media #{$media-ipadPortrait} {
+                display: none;
+            }
+            ul {
+                @include flexbox();
+                @include justify-content(space-between);
+                li {
+                    &:not(.hide) {
+                        + li {
+                            margin-left: 20px;
+                        }
+                    }
                 }
-                &--scroll {
-                    display: none;
-                }
-                &--responsive {
-                    display: none;
-                    @media #{$media-ipadPortrait} {
+            }
+            &--links {
+                @include flexbox();
+                @include align-items(center);
+                .user {
+                    &--image {
+                        @include size(40px);
+                        border: 1px solid $white;
                         display: block;
-                        width: 100px;
+                        @include border-radius(50%);
+                    }
+                    &--title {
+                        color: $white;
+                        @include font-size(12);
+                        @include margin-left(12);
+                        line-height: 1.5;
+                        letter-spacing: 0.7px;
+                        position: relative;
+                        text-transform: uppercase;
+                        &--break {
+                            display: block;
+                        }
+                    }
+                    &--line-bar {
+                        background-color: $light-grey;
+                        width: 46px;
+                        height: 4px;
+                        @include border-radius(4px);
+                        position: absolute;
+                        left: 0;
+                        bottom: -15px;
                     }
                 }
             }
         }
-        &-right {
-            .navigation-section {
-                .open-menu {
-                    top: 12px;
-                    right: 0px;
-                    width: 50px;
-                    height: 14px;
-                    margin: auto;
-                    display: none;
-                    cursor: pointer;
-                    z-index: 99;
-                    position: absolute;
-                    @include transition(all 0.3s ease);
-                    span {
+        &__icons {
+            &--search-box {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: calc(#{$viewportSize} - 20px);
+                height: calc(#{$viewportSize} + 20px);
+                background: $zblack none repeat scroll 0 0;
+                @include padding(10 0);
+                @include margin(0 10);
+                @include opacity(0);
+                visibility: hidden;
+                @include transition(all 0.3s ease);
+                &.active {
+                    @include opacity(1);
+                    visibility: visible;
+                }
+                .input-group {
+                    .input-field {
+                        background: $zblack;
+                        border: none;
+                        border-bottom: 1px solid $white;
+                        @include border-radius(0);
+                        color: $white;
+                        @include font-size(30);
+                        letter-spacing: 0.9px;
+                        @extend .font-light;
+                        @include padding-right(35);
+                        @include placeholder {
+                            color: $white;
+                        }
+                    }
+                    .search-button {
+                        border: none;
+                        background: none repeat scroll 0 0;
                         position: absolute;
-                        display: block;
-                        font-size: 0;
-                        width: 20px;
-                        height: 2px;
-                        background-color: $blue;
-                        margin: auto;
-                        left: 0;
                         right: 0;
-                        overflow: hidden;
-                        &:after {
-                            top: 0;
-                            left: 0;
-                            content: '';
-                            display: block;
-                            position: absolute;
-                            width: 100%;
-                            height: 2px;
-                            background-color: $blue;
-                            -webkit-transform: translateX(-100%);
-                            -moz-transform: translateX(-100%);
-                            -ms-transform: translateX(-100%);
-                            -o-transform: translateX(-100%);
-                            transform: translateX(-100%);
-                            -webkit-transition: all 0.2s linear;
-                            -moz-transition: all 0.2s linear;
-                            -ms-transition: all 0.2s linear;
-                            -o-transition: all 0.2s linear;
-                            transition: all 0.2s linear;
-                        }
-                    }
-                    .item-1 {
-                        top: 0;
-                    }
-                    .item-2 {
-                        top: 0;
-                        bottom: 0;
-                        &:after {
-                            -webkit-transition-delay: 0.1s;
-                            -moz-transition-delay: 0.1s;
-                            -ms-transition-delay: 0.1s;
-                            -o-transition-delay: 0.1s;
-                            transition-delay: 0.1s;
-                        }
-                    }
-                    .item-3 {
-                        bottom: 0;
-                        &:after {
-                            -webkit-transition-delay: 0.2s;
-                            -moz-transition-delay: 0.2s;
-                            -ms-transition-delay: 0.2s;
-                            -o-transition-delay: 0.2s;
-                            transition-delay: 0.2s;
-                        }
-                    }
-                    &:hover span:after {
-                        -webkit-transform: translateZ(0);
-                        -moz-transform: translateZ(0);
-                        -ms-transform: translateZ(0);
-                        -o-transform: translateZ(0);
-                        transform: translateZ(0);
-                    }
-                    @media #{$media-ipadSmall} {
-                        width: 42px;
-                        display: block; 
-                    }
-                    &.active {
-                        .item-2 {
-                            display: none;
-                        }
-                        .item-1 {
-                            @include rotate(45);
-                        }
-                        .item-3 {
-                            @include rotate(-45);
-                            bottom: auto;
-                        }
+                        color: $white;
+                        @include font-size(20);
+                        height: $viewportSize;
+                        z-index: 13;
+                        cursor: pointer;
                     }
                 }
-                &--menu {
-                    @include flexbox();
-                    li {
-                        position: relative; 
-                        a {
-                            @include transition(all 0.3s ease);
-                            display: block;
-                            &:before {
-                                content: '';
-                                height: 2px;
-                                background: $blue none repeat scroll 0 0;
-                                width: 0px;
-                                position: absolute;
-                                bottom: -8px;
-                                left: 0;
-                                @include transition(all 0.3s ease);
-                                @media #{$media-ipadPortrait} {
-                                    background: $white none repeat scroll 0 0;
-                                }
-                            }
-                            &:hover, &:focus {
-                                color: $blue;
-                                @media #{$media-ipadPortrait} {
-                                    color: $white;
-                                }
-                                &:before {
-                                    width: 30px;
-                                }
-                            }
-                        }
-                        + li {
-                            margin-left: 40px;
-                        }
+            }
+            &--list {
+                @include flexbox();
+                @include align-items(center);
+                @include margin-left(20);
+                .icons {
+                    @include font-size(21);
+                    line-height: 1;
+                    color: $white;
+                    + .icons {
+                        @include margin-left(30);
                     }
-                    @media #{$media-ipadSmall} {
-                        position: absolute;
-                        top: 100px;
-                        left: 0;
-                        width: $viewportSize;
-                        background: $white none repeat scroll 0 0; 
-                        z-index: 98;
-                        text-align: left;
-                        @include padding(70px 0 100px);
-                        @include opacity(0);
-                        visibility: hidden;
-                        @include transition(all 0.3s ease);
-                        display: block;
-                        li {
-                            width: $viewportSize;
-                            display: none;
-                            margin-left: 0 !important;
-                            @include padding(0 15);
-                            text-align: left;
-                            a {
-                                @include padding(12 0); 
-                                width: $viewportSize;
-                                display: block;
-                                &:before {
-                                    display: none;
-                                } 
-                            }
-                            + li {
-                                a {
-                                    border-top: 1px solid $border; 
-                                }
-                            }
-                        }
-                        &.active {
-                            top: 50px;
-                            @include opacity(1);
-                            visibility: visible;
-                            li {
-                                display: block;
-                            }
+                    &.menu {
+                        display: none;
+                        @media #{$media-ipadPortrait} {
+                            display: block;
                         }
                     }
                 }
             }
         }
     }
-    &__fixed {
-        @include padding(15 0);
-        background: rgba($white, 1) none repeat scroll 0 0;
-        @include box-shadow(rgba(0,0,0,0.2) 0px 1px 1.5px 1px);
-        position: fixed;
-        .header__section {
-            &-left {
-                .main-logo {
-                    display: none;
-                    &--scroll {
+    .sticky-wrapper {
+        @media #{$media-ipadPortrait} {
+            height: inherit !important;
+        }
+    }
+    .is-sticky {
+        .header__main {
+            @include padding(25 0);
+            &--logo {
+                width: 110px;
+                a {
+                    display: block;
+                    img {
                         display: block;
-                        width: 100px;
-                    }
-                    &--responsive {
-                        display: none;
                     }
                 }
             }
-            &-right {
-                .button {
-                    @include padding(12 30);
-                    @include font-size(14);
+            &__navigation {
+                margin-left: 20px;
+                &--links {
+                    .user {
+                        &--image {
+                            @include size(30px);
+                        }
+                        &--title {
+                            @include font-size(10);
+                        }
+                    }
                 }
             }
         }

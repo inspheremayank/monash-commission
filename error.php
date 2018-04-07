@@ -1,6 +1,6 @@
 <!-- Begin global header section -->
 <?php
-$pageTitle = 'GV Health';
+$pageTitle = 'Monash Commission';
 include("includes/_global-Head.php");
 ?>
 <?php
