@@ -1,0 +1,47 @@
+{% set network = _Network.getNetworkData() %}
+{{ set(this, 'title', _Blog.getBlogTitle()) }}
+
+{% set blogInfo = _Blog.getBlog() %}
+{% set mediaCoverImage = ''%}
+{% set mediaThumbImage = ''%}
+{%if blogInfo.media['cover']['id'] is defined and blogInfo.media['cover']['id'] is not empty%}
+    {% set mediaCoverImage = _Media.getMediaUrl(blogInfo.media['cover'], 1900, 1900, {crop: 'limit'}) %}  
+{% endif%}
+{%if blogInfo.media['thumb']['id'] is defined and blogInfo.media['thumb']['id'] is not empty%}
+    {% set mediaThumbImage = _Media.getMediaUrl(blogInfo.media['thumb'], 600, 600, {crop:"thumb", gravity:"face", type: "user"}) %}  
+{% endif%}
+{{this.registerJs("HomeController.listing();")}}
+{% set limit = 10 %}
+{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+{% set articles = articlesArr.articles %}
+<div class="clearfix"></div>
+<div class="page__content-main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 px-0">
+                <div class="user__profile">
+                    <div class="user__profile-banner user__profile--withoutImage image-covered" {% if mediaCoverImage is not empty %}style="background-image: url('{{mediaCoverImage}}')"{% endif %}>
+                        <div class="user__profile-details">
+                            <h1>{{blogInfo.title}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}" data-offset="{{limit}}">
+            {% for article in articles %}
+                {% set i = loop.index0 %}
+                {% if articles[i] is defined %}
+                    {{this.render('partials/_single-article.twig', {network: network, article: articles[i], 'position': i+1, class: 'col-12 col-md-12 col-lg-6 card__view-half'}) | raw}} 
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% if articles|length >= limit %}
+        <div class="text-center my-3 loadMoreArticles">
+            <button class="button button__icon--left button--orange button--radius"><i class="fa fa-spin"></i>Load more</button>
+        </div>
+    {% endif %}
+</div>

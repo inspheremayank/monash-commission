@@ -1,0 +1,66 @@
+
+{{ set(this, 'params', {isHomePageOnly: "1"})  }}
+{% set network = _Network.getNetworkData() %}
+{{set(this,'title',(network.title))}}
+{% set limit = 11 %}
+{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+{% set articles = articlesArr.articles %}
+{#{{_AppHelper.printArray(blogList)}}#}
+{{this.registerJs("HomeController.listing();")}}
+<!-- Begin about Banner section markup -->
+<div class="clearfix"></div>
+{{ this.render('partials/_home_top_banner.twig', {network:network, keyword: 'hone_top_banner'}) | raw }}
+<div class="clearfix"></div>
+{{ this.render('partials/_top_cta.twig', {network:network, keyword: 'top_cta_gvHealth'}) | raw }}
+<div class="clearfix"></div>
+<div class="card-wrap">
+    <div class="container">
+        {% if articles|length > 0 %}
+            <div class="row">
+                {% for i in 0..1 %}
+                    {% if articles[i] is defined %}
+                        {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'col-12 col-md-6 col-lg-3 card__view-third small'}) | raw}}
+                    {% endif %}
+                {% endfor %}
+                {% if articles[2] is defined %}
+                        {{this.render('partials/_single-article.twig', {article: articles[2], 'position': 3, class: 'col-12 col-md-12 col-lg-6 card__view-half'}) | raw}}
+                {% endif %}
+                {% if articles[3] is defined %}
+                        {{this.render('partials/_single-article.twig', {article: articles[3], 'position': 4, class: 'col-12 col-md-12 col-lg-6 card__view-half card__view-upWard'}) | raw}}
+                {% endif %}
+                {% if articles[4] is defined %}
+                        {{this.render('partials/_single-article.twig', {article: articles[4], 'position': 5, class: 'col-12 col-md-6 col-lg-3 card__view-third small'}) | raw}}
+                {% endif %}
+                {{ this.render('partials/_recruitment.twig', {network:network, keyword: 'recruitment'}) | raw }}
+            </div>
+            <div class="row">
+                {% for i in 5..6 %}
+                    {% if articles[i] is defined %}
+                        {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'col-12 col-md-6 col-lg-3 card__view-third small'}) | raw}}
+                    {% endif %}
+                {% endfor %}
+                {% if articles[7] is defined %}
+                        {{this.render('partials/_single-article.twig', {article: articles[7], 'position': 8, class: 'col-12 col-md-12 col-lg-6 card__view-half'}) | raw}}
+                {% endif %}
+                {% if articles[8] is defined %}
+                        {{this.render('partials/_single-article.twig', {article: articles[8], 'position': 9, class: 'col-12 col-md-12 col-lg-6 card__view-half card__view-upWard'}) | raw}}
+                {% endif %}
+                {% if articles[9] is defined %}
+                        {{this.render('partials/_single-article.twig', {article: articles[9], 'position': 10, class: 'col-12 col-md-6 col-lg-3 card__view-third small'}) | raw}}
+                {% endif %}
+                {% if articles[10] is defined %}
+                        {{this.render('partials/_single-article.twig', {article: articles[10], 'position': 11, class: 'col-12 col-md-6 col-lg-3 card__view-third small'}) | raw}}
+                {% endif %}
+            </div>
+        {% endif%}
+        
+        <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}" data-offset="{{limit}}">
+ 
+        </div>
+        {% if articles|length >= limit %}
+            <div class="text-center my-3 loadMoreArticles">
+                <button class="button button__icon--left button--orange button--radius"><i class="fa fa-spin"></i>Load more</button>
+            </div>
+        {% endif %}
+    </div>
+</div>

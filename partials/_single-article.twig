@@ -1,0 +1,158 @@
+{#{{_AppHelper.printArray(article)}}#}
+{% if article.articleId > 0 %}
+    {% set bgImage = "" %}
+    {% set videoClass = '' %}
+    {% set mediaVideoUrl = '' %}
+    {% set cardImageClass = 'without-image' %}
+    {% set cardWithImageClass = '' %}
+    {% if article.featuredMedia | length > 0 and article.featuredMedia.id is not empty %}
+        {% set cardImageClass = '' %}
+        {% set cardWithImageClass = 'excerpt-slideUp' %}
+        {% set isSingle = 'single' in class %}
+        {% if isSingle %}
+            {% set cardWithImageClass = '' %}
+        {% endif %}
+        
+        {% set articleImg = _Media.getMediaUrl(article.featuredMedia,imgWidth, imgHeight, {'crop': crop, 'gravity': gravity, 'quality': '75'} ) %}
+        {% set bgImage = articleImg %}
+        {% if article.featuredMedia['type'] == 'video' %}
+            {% set videoClass = 'video' %}
+        {% endif %}
+    {% endif %}
+
+    {% if not blogGuid is defined %}
+        {% set blogGuid = article.blog.guid %}
+    {% endif %}
+    {% set textDotClass = '' %}
+    {% if 'small' in class and  cardImageClass is defined %}
+        {% set textDotClass = 'text__dotdot' %}
+    {% endif %}
+    <div class="card__view {{class}}">
+        <div class="{{cardImageClass}} {{cardWithImageClass}} {{videoClass}} swap" data-blog-guid="{{blogGuid}}" data-id="{{article.articleId}}" data-position="{{position}}" data-social="0" data-article-image="{{articleImg}}" data-article-text="{{Helper.htmlToText(article.title, 100) | raw}}"><!-- Make these classes dynamic 'social twitter/linkedin/vimeo/youtube/instagram' 'video' 'without-image' -->
+            <a href="{{article.url}}" class="card__view--items">
+                <div class="card__view--content">
+                    <div class="mask"></div>
+                    {% set bgImg = network.templatePath~'/static/images/test-image.jpg' %}
+                    {% if article.hasMedia == 'TRUE' %}
+                        <figure class="embed-responsive embed-responsive-16by9">
+                                <img class="embed-responsive-item" src="{{bgImage}}" alt="image" />
+                                <div class="video-play"></div>
+                        </figure>
+                        {% endif %}
+                        {% if article.userHasBlogAccess == '1' %}
+                        <div class="optionSet">
+                            <ul>
+                                <div class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-guid="{{article.guid}}" data-social="0">
+                                    <li>Hide <span class="fa fa-eye-slash"></span></li>
+                                </div>
+
+                                {% set pinTitle = 'Pin Article' %}  
+                                {% set pinTxt = 'PIN' %}
+                                {% set pinCls = '' %}
+                                {% if article.isPinned == 1 %}
+                                    {% set pinTitle = 'Un-Pin Article' %}
+                                    {% set pinTxt = 'UN-PIN' %}
+                                    {% set pinCls = 'selected' %}
+                                {% endif %}
+                                <div class="admin-actions__action admin-actions__action--pin PinArticleBtn {{pinCls}}" data-position="{{position}}" data-social="0" data-id="{{article.articleId}}" title="{{pinTitle}}" data-status="{{article.isPinned}}">
+                                    <li><i>{{pinTxt}}</i> <span class="fa fa-map-marker"></span></li>
+                                </div>
+                                {% if article.userHasEditArticleAccess == '1' %}
+                                    <div class="admin-actions__action admin-actions__action--edit" onclick="window.location = '{{article.editUrl}}';
+                                            return false;">
+                                        <li>Edit <span class="fa fa-cog"></span></li>
+                                    </div>
+                                    
+                                {% endif %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    <div class="social-icons"></div>
+                    <div class="content__section-block">
+                        <div class="content__section">
+                            <div class="content__section-category">Category</div>
+                            {% set articleTitle = article.title| raw %}
+                            {% set articleExcerpt = article.excerpt| raw %}
+                            <h2 class="content__section-heading">{{articleTitle}}</h2>
+                            <div class="content__section-description {{textDotClass}}">{{articleExcerpt}}</div>
+                            <button class="content__section-button">Read more</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% else %}
+{#    {{_AppHelper.printArray(article)}}#}
+    {% set social = article.social %}
+    {% set mediaClass = 'without-image' %}
+    {% set bgImgSocial = '' %}
+    {% set videoClass = '' %}
+    {% set socialClass = '' %}
+    {% if social.source is defined %}
+        {% set socialClass = 'social '~social.source %}
+    {% endif %}
+    {% if social.hasMedia is defined and social.hasMedia | length > 0 %}
+        {% set mediaClass = '' %}
+        {% set bgImgSocial = social.media['path'] %}
+        {% if social.media['type'] == 'video' and social.media['videoUrl'] is not empty %}
+            {% set videoClass = 'video' %}
+        {% endif %}
+    {% endif %}
+    {% set textDotClass = '' %}
+    {% if 'small' in class and  mediaClass is defined %}
+        {% set textDotClass = 'text__dotdot' %}
+    {% endif %}
+    <div class="card__view {{class}}">
+        <div class="{{mediaClass}} {{videoClass}} swap {{socialClass}}" data-blog-guid="{{social.blog['guid']}}" data-id="{{article.socialId}}" data-position="{{position}}" data-social="1" data-article-image="{{social.media['path']}}" data-article-text="{{Helper.htmlToText(social.content, -1) | raw | escape('html')}}" data-user-image="{{social.user['media']['path']}}" data-user-name="{{ social.user['name'] | lower }}">
+            <a href="{{ social.url }}" class="card__view--items socialCard" data-blog-guid="{{social.blog['guid']}}" data-guid="{{social.guid}}">
+                <div class="card__view--content">
+                    <div class="mask"></div>
+                    {% if social.media | length > 0 and  social.media['path'] is not empty %}
+                        <figure class="embed-responsive embed-responsive-16by9">
+                                <img class="embed-responsive-item" src="{{bgImgSocial}}" alt="image" />
+                                <div class="video-play"></div>
+                        </figure>
+                    {% endif %}
+                    {% if article.userHasBlogAccess == '1' %}
+                        <div class="optionSet">
+                            <ul>
+                                <div class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-guid="{{social.guid}}" data-social="1">
+                                    <li>Hide <span class="fa fa-eye-slash"></span></li>
+                                </div>
+
+                                {% set pinTitle = 'Pin Article' %}  
+                                {% set pinTxt = 'PIN' %}
+                                {% set pinCls = '' %}
+                                {% if article.isPinned == 1 %}
+                                    {% set pinTitle = 'Un-Pin Article' %}
+                                    {% set pinTxt = 'UN-PIN' %}
+                                    {% set pinCls = 'selected' %}
+                                {% endif %}
+                                <div class="admin-actions__action admin-actions__action--pin PinArticleBtn {{pinCls}}" data-position="{{position}}" data-social="1" data-id="{{article.socialId}}" title="{{pinTitle}}" data-status="{{article.isPinned}}">
+                                    <li><i>{{pinTxt}}</i> <span class="fa fa-map-marker"></span></li>
+                                </div>
+                                {% if article.userHasEditArticleAccess == '1' %}
+                                    <div class="admin-actions__action admin-actions__action--edit" data-social="1" onClick="window.open('/admin/social-funnel/update-social?guid={{social.blog['guid']}}&socialguid={{social.guid}}', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=450');return false;">
+                                        <li>Edit <span class="fa fa-cog"></span></li>
+                                    </div>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    <div class="social-icons"></div>
+                    <div class="content__section-block">
+                        <div class="content__section">
+                            <div class="content__section-category">Category</div>
+                            {% set articleTitle = social.blog['title'] | raw %}
+                            {% set articleExcerpt = social.content| raw %}
+                            <h2 class="content__section-heading">{{articleTitle}}</h2>
+                            <div class="content__section-description {{textDotClass}}">{{articleExcerpt}}</div>
+                            <button class="content__section-button">Read more</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endif %}

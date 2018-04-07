@@ -1,0 +1,62 @@
+<header class="header"> 
+    <!-- Begin Header main section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center header__section">
+                    <aside class="header__section-left">
+                        {% set mainLogo = network.templatePath~'/static/images/gv-health-logo-white.svg' %}
+                        {% set logoUrl = network.networkLogoLinkUrl %}
+                        {% if network.logoMedia | length > 0 %}
+                            {% set mainLogo = _Media.getMediaUrl(network.logoMedia, 177, 65, {'crop': 'limit'} )%}
+                        {% endif %}
+                        {% if this.params['isHomePageOnly'] is defined %}
+                            <a class="main-logo" href="{{logoUrl}}">
+                                <img src="{{network.templatePath~'/static/images/gv-health-logo-white.svg'}}" class="img-fluid" alt="logo" />
+                            </a>
+                            <a class="main-logo main-logo--responsive" href="javascript:;">
+                                <img src="{{network.templatePath~'/static/images/gv-health-logo.svg'}}" class="img-fluid" alt="logo" />
+                            </a>
+                        {% else %}
+                            <a class="main-logo" href="{{logoUrl}}">
+                                <img src="{{network.templatePath~'/static/images/gv-health-logo.svg'}}" class="img-fluid" alt="logo" />
+                            </a>
+                        {% endif %}
+                        <a class="main-logo--scroll" href="{{logoUrl}}">
+                            <img src="{{network.templatePath~'/static/images/gv-health-logo.svg'}}" class="img-fluid" alt="logo" />
+                        </a>
+                    </aside>
+                    <aside class="header__section-right">
+                        <div class="navigation-section">
+                            <div class="open-menu">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="item-1"></span>
+                                <span class="item-2"></span>
+                                <span class="item-3"></span>
+                            </div>
+                            <ul class="navigation-section--menu">
+                                {% set menuItems = blog.blogHeaderMenu %}
+                                {% for i in 0..4 %}
+                                    {% if menuItems[i] is defined %}
+                                        {% set hasChildren = menuItems[i].children is defined and menuItems[i].children | length > 0 ? true : false %} 
+                                        {% if hasChildren %}
+                                            {% set class = (i%2 != 0) ? "small-text" : "" %}
+                                            {% for childItem in menuItems[i].children%}
+                                                {% set externalClass = (childItem.isExternal) ? 'external-link' : '' %}
+                                                {% set name = ((childItem.label is empty) ? ((childItem.pageTitle is empty)? childItem.blogTitle : childItem.pageTitle) : childItem.label) %}
+                                                <li>
+                                                    <a href="{{childItem.link |raw}}" {% if childItem.target != "" %}target="{{childItem.target}}"{% endif %}>{{ name }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Header main section -->
+</header> 

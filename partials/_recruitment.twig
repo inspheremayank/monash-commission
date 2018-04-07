@@ -1,0 +1,42 @@
+{% set ctaBackgroundImage = "" %}
+{% set ctaVideoUrl = "" %}
+{% if keyword is defined and keyword is not empty %}
+    {% set cta = _CallToAction.getKeywordBasedCTA(keyword)%}
+    {% if cta is defined and cta|length > 0 %}
+        {% if cta.id is defined and cta.id is not empty %}
+            {% if(cta.media['id'] is defined and cta.media['id'] is not empty) %}
+                {% set ctaBackgroundImage = _Media.getMediaUrl(cta.media,0,0,{'crop': 'fill'}) %}
+            {% endif %}
+            {{this.registerCss("
+                .cta_block_"~cta.id~" .button {
+                    border-color: "~cta.button['backgroundColor']~";
+                    background: "~cta.button['backgroundColor']~"
+                }
+                .cta_block_"~cta.id~" .button:hover {
+                    color: "~cta.button['backgroundColor']~";
+                    border-color: "~cta.button['backgroundColor']~";
+                    background: "~cta.button['backgroundColor']~";
+                } 
+            ")}}
+            {% set ctaWithMeta = _CallToAction.get({keywords: keyword, includeMetaInfo: 1})%}
+            {% if ctaWithMeta is defined and ctaWithMeta|length > 0 %}
+                {% if ctaWithMeta.additionalInfo is defined and ctaWithMeta.additionalInfo|length > 0 %}
+                    {% set ctaVideoUrl =ctaWithMeta.additionalInfo.cta_video_url %}
+                {% endif%}
+            {% endif%}
+            <div class="col-12 col-md-6 col-lg-3 cta-wrap cta-wrap__action image-covered {% if ctaVideoUrl is defined and ctaVideoUrl is not empty %}{{'video'}}{% endif%} cta_block_{{cta.id}}" {% if ctaBackgroundImage is not empty or cta.backgroundColor is not empty %} style="{{ (ctaBackgroundImage is not empty) ? 'background-image: url('~ctaBackgroundImage~');' : ''}}{{ (cta.backgroundColor is not empty) ? 'background-color: '~cta.backgroundColor~';' : ''}}"{% endif %}>
+                <div class="cta-wrap__main">
+                    <div class="cta-wrap__main--description">Visit Our</div>
+                    <div class="cta-wrap__main--title">{{cta.title |raw}}</div>
+                    {% if cta.button.text is defined and cta.button.text is not empty %}
+                        <a href="{{cta.button['url']}}" target="_blank" class="cta-wrap__main--button button--small button button--orange button--radius upper">{{cta.button['text'] |raw |upper}}</a>
+                    {% endif %}
+                    
+                    <figure class="cta-wrap__main--image">
+                        <div class="image-covered img-container" style="background-image: url({{ctaBackgroundImage}})"></div>
+                    </figure>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endif %}

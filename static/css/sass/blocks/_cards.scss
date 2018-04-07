@@ -1,0 +1,320 @@
+/* cards section
+================================ */
+.card {
+    &-wrap {
+        h3 {
+            @include margin(70 0 60);
+        }
+    }
+    &__view {
+        margin-bottom: 20px;
+        &-upWard {
+            margin-top: -250px;
+            @media #{$media-desktop} {
+                margin-top: -190px;
+            }
+            @media #{$media-ipadPortrait} {
+                margin-top: 0px;
+            }
+        }
+        &-third {
+            &.small {
+                figure {
+                    display: none;
+                }
+                .card__view--content {
+                    height: 230px !important; 
+                    background: #eff0f3 none repeat scroll 0 0;
+                    @include transition(all 0.3s ease);
+                }
+                .content__section {
+                    @include padding(30);
+                }
+                .card__view--items {
+                    &:hover, &:focus {
+                        .card__view--content {
+                            background-color: $blue;
+                        }
+                        .content__section {
+                            &-heading, &-button, &-category, &-description {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-half {
+            .card__view--content {
+                .content__section {
+                    @include padding(20 0);
+                    &-heading {
+                        @include font-size(28); 
+                    }
+                    &-description, &-button {
+                        display: none;
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        width: 100px;
+                        height: 1px;
+                        left: 0;
+                        background-color: #454545;
+                    }
+                }
+            } 
+        }
+        &--content {
+            position: relative;
+            @include flexbox();
+            @include flex-direction(column,vertical);
+            height: 480px;
+            overflow: hidden;
+            @media #{$media-desktop} {
+                height: 420px;
+            }
+            .social-icons {
+                display: none;
+            }
+            .content__section {
+                z-index: 11; 
+                @include transition(all 0.3s ease);
+                min-height: 160px;
+                @include padding(20 15);
+                position: relative;
+                &-heading {
+                    @include font-size(18);
+                    overflow: hidden;
+                    max-height: 120px;
+                    font-family: $primary-fonts-bold;
+                    color: $black; 
+                    @include padding-bottom(5); 
+                    @media #{$media-ipadSmall} {
+                        @include font-size(22);
+                    }
+                }
+                &-button {
+                    color: $blue;
+                    margin-top: 20px;
+                    outline: none;
+                    border: none;
+                    background: none repeat scroll 0 0;
+                }
+                &-category {
+                    color: $black;
+                    font-family: $primary-fonts-regular;
+                    @include font-size(12);
+                    text-transform: uppercase;
+                    margin-bottom: 5px;
+                }
+                &-description {
+                    @include font-size(16);
+                    max-height: 150px;
+                    overflow: hidden;
+                    color: $black;
+                    font-family: $primary-fonts-regular;
+                }
+                &-userInfo { 
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    display: none;
+                    &-image {
+                        @include size(30px);
+                        @include border-radius(50%);
+                        margin-right: 15px; 
+                    }
+                    &-content {
+                        width: calc(#{$viewportSize} - 35px);
+                        .designation {
+                            display: block;
+                            @include font-size(12);
+                            color: $grey;
+                            margin-top: 4px; 
+                        }
+                    }
+                    &-hide {
+                        display: none;
+                    }
+                }
+            }
+            .optionSet {
+                position: absolute;
+                top: 10px; 
+                left: 0;
+                width: 85px;
+                @include opacity(0);
+                @include transition(all 0.3s ease);
+                z-index: 999;
+                li {
+                    color: $white;
+                    @include padding(5 10);
+                    @include font-size(13);
+                    position: relative;
+                    background: rgba($zblack, 0.6) none repeat scroll 0 0; 
+                    @include transition(all 0.3s ease);
+                    + li {
+                        border-top: 1px solid rgba($zblack, 0.2);
+                    }
+                    span {  
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        @include translate(0,-50%);
+                        text-align: center;
+                        width: 30px;
+                        &.fa-spin {
+                            top: 6px !important;
+                        }
+                    }
+                    &:hover, &:focus {
+                        background: rgba($zblack, 1) none repeat scroll 0 0;
+                    }  
+                }
+            }
+        }
+        .without-image {
+            .card__view--content {
+                background: #eff0f3 none repeat scroll 0 0;
+                figure {
+                    display: none;
+                }
+                .content__section {
+                    height: $viewportSize;
+                    @include padding(30);
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .video {
+            .card__view--content {
+                .video-play {
+                    @include size(60px);
+                    @include border-radius(50%);
+                    border: 2px solid darken($white,3%);
+                    position: relative;
+                    z-index: 99;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    @include translate(-50%,-50%);
+                    @include box-shadow(0 0 5px 0 rgba($zblack,0.4));
+                    @include transition(all 0.5s ease);
+                    &:after {
+                        content: '\f04b';
+                        font-family: $iconfont;
+                        @include font-size(30);
+                        line-height: 1;
+                        color: #f2f2f2;
+                        position: absolute;
+                        top: 50%;
+                        left: 54%;
+                        @include translate(-50%,-50%);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .social {
+            .card__view--content {
+                .content__section {
+                    &-userInfo-content .designation { 
+                        display: none;
+                    }
+                }
+                .social-icons {
+                    display: block;
+                    text-align: center;
+                    @include size(35px);
+                    @include border-radius(50%);
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    z-index: 11;
+                    &:before {
+                        content: '';
+                        font-family: $iconfont;
+                        @include font-size(20);
+                        line-height: 35px;
+                        color: #b7af98;
+                    }
+                }
+            }
+            &.twitter {
+                .card__view--content .social-icons {
+                    background-color: $twitter;
+                    &:before {
+                        content: '\f099';
+                        color: $white;
+                    }
+                }
+            }
+            &.facebook {
+                .card__view--content .social-icons {
+                    background-color: $facebook;
+                    &:before {
+                        content: '\f09a';
+                        color: $white;
+                    }
+                }
+            }
+            &.linkedin {
+                .card__view--content .social-icons {
+                    background-color: $linkedin;
+                    &:before {
+                        content: '\f0e1';
+                        color: $white;
+                    }
+                }
+            }
+            &.instagram {
+                .card__view--content .social-icons {
+                    background-color: $zblack;
+                    &:before {
+                        content: '\f16d';
+                    }
+                }
+            }
+            &.youtube {
+                .card__view--content .social-icons {
+                    background-color: $youtube;
+                    &:before {
+                        content: '\f167';
+                        color: $white;
+                    }
+                }
+            }
+            &.vimeo {
+                .card__view--content .social-icons {
+                    background-color: $vimeo;
+                    &:before {
+                        content: '\f27d';
+                        color: $white;
+                    }
+                }
+            }
+        }
+        &--items {
+            display: block;
+            @include transition(all 0.3s ease);
+            &:hover, &:focus {
+                .card__view--content {
+                    .optionSet {
+                        @include opacity(1); 
+                    }
+                    .video-play {
+                        background: white none repeat scroll 0 0;
+                        &:after {
+                            color: $black;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}

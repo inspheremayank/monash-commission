@@ -1,0 +1,107 @@
+/* banner section
+================================ */
+.banner__section {
+    height: 500px;
+    position: relative;
+    &:after {
+        content: '';
+        z-index: 99;
+        @include linear-gradient(rgba(25, 44, 84, 0.2), $zblack);
+        @include size(#{$viewportSize});
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        z-index: 10;
+    }
+    @media #{$media-ipadSmall} {
+        height: inherit;
+    }
+    @media #{$media-ipadPortrait} {
+        &:after {
+            display: block;
+        }
+    }
+    &--ltArt {
+        position: absolute;
+        left: 0;
+        top: -91px;
+        width: calc(50% + 120px);
+        height: calc(#{$viewportSize} + 91px);
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: calc(#{$viewportSize} - 502px);
+            background-color: rgba(#82BD41,0.9);
+            height: $viewportSize;
+        }
+        .svg-inject {
+            height: $viewportSize;
+            position: absolute;
+            right: 0;
+            top: 0;
+            overflow: hidden;
+        }
+        @media #{$media-ipadPortrait} {
+            display: none;
+        }
+    }
+    &--rtArt {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+        @include size(150px);
+        overflow: hidden;
+        .svg-inject {
+            @include size($viewportSize);
+        }
+        @media #{$media-ipadPortrait} {
+            display: none;
+        }
+    }
+    &__content {
+        height: $viewportSize;
+        z-index: 20;
+        position: relative;
+        .container, .row {
+            height: $viewportSize;
+        }
+        &-area {
+            @include size($viewportSize);
+            max-width: 500px;
+            @include flexbox();
+            @include flex-direction(column,vertical);
+            @include justify-content(flex-end);
+            @include padding-bottom(110);
+            @media #{$media-ipadSmall} {
+                max-width: inherit;
+                @include padding(60 0);
+            }
+        }
+        &--title {
+            color: $white;
+            @include font-size(46);
+            letter-spacing: 0.5px;
+            @extend .font-regular;
+            @media #{$media-ipadPortrait} {
+                @include font-size(28);
+            }
+        }
+        &--description {
+            color: $white;
+            @include font-size(20);
+            letter-spacing: 0.3px;
+            @extend .font-regular;
+            @include margin-top(15);
+            @media #{$media-ipadPortrait} {
+                @include font-size(16);
+            }
+        }
+        &--button {
+            @include margin-top(30);
+            max-width: 150px;
+        }
+    }
+}

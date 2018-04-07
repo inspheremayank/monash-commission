@@ -1,0 +1,107 @@
+@charset "utf-8";  
+/* CSS Document */ 
+
+/*! ATTENTION:This project uses SASS! Please make your CSS edits in sass/default.scss. */
+
+/* Basic Includes
+   ================================ */
+@import 'variables'; 
+@import 'mixins';
+@import 'reset';
+@import 'custom_grid'; 
+@import 'typography';
+  
+/* Begin Basic Coding
+   ================================ */
+/* Basic 
+----------------------------- */
+html,
+body {
+    @include size(#{$viewportSize});
+    min-height: 100% !important;
+}
+body {
+    height: auto; 
+    background:$defaultbg none repeat scroll 0 0;
+    color: $black2;
+    font-family: $primary-fonts-medium;
+    font-weight: $weightRegular;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+ul li, ol li {
+    font-weight: $weightRegular;
+}
+.page__body {
+    @include padding(120px 0 80px);
+}
+.getForm__wrapper {
+    background: $greyish none repeat scroll 0 0;
+    position: relative;
+    width: $viewportSize;
+    @include padding(100 0);
+    min-height: calc(100vh - 90px); 
+    &-form {
+        @include padding-right(150);
+        @media #{$media-desktop} {
+            @include padding-right(50);
+        }
+        @media #{$media-ipadSmall} {
+            @include padding-right(0);
+        }
+        .title {
+            @include font-size(46);
+            line-height: 1 !important;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            @extend .font-medium;
+            color: $black;
+        }
+        p {
+            @include font-size(20);
+            @extend .font-regular;
+            color: $black;
+            letter-spacing: 0.3px;
+        }
+        .form-fields {
+            margin-top: 60px;
+        }
+        .button {
+            margin-top: 30px;
+        }
+    }
+    &-image {
+        float: right;
+        @include padding-left(30px); 
+    }
+    @extend .flip-containers;
+    @media #{$media-tablet} {
+        .flex-first {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+    }
+}
+/* End Basic Coding
+   ================================ */
+
+/* Miscellaneous Includes
+   ================================ */
+@import 'blocks/globalClasses';
+@import 'blocks/generic-content';
+@import 'blocks/buttons'; 
+@import 'blocks/form'; 
+@import 'blocks/banner';
+@import 'blocks/table';
+@import 'blocks/pageheader'; 
+@import 'blocks/pagefooter';
+@import 'blocks/cta-section';
+@import 'blocks/cards';
+@import 'blocks/error';
+@import 'blocks/blog'; 
+@import 'blocks/articles';
+@import 'blocks/modal'; 
+@import 'blocks/dependencies_Breakup'; 
+
+/* Pages Includes
+   ================================ */

@@ -1,0 +1,13 @@
+{% if blogInfo['vimeo'] is not empty or blogInfo['linkedin'] is not empty or blogInfo['google'] is not empty or blogInfo['facebook'] is not empty or blogInfo['twitter'] is not empty or blogInfo['instagram'] is not empty or blogInfo['youtube'] is not empty %}
+<div class="col-6 col-md-3 col-xxs-12">
+    <div class="footer__main__content">
+        <div class="footer__main__content--heading">Follow us</div>
+        <div class="footer__main__content--social-media">
+            <a href="{{blogInfo['google']}}" class="fa fa-envelope" target="_blank"></a>
+            <a href="{{blogInfo['twitter']}}" class="fa fa-twitter" target="_blank"></a>
+            <a href="{{blogInfo['linkedin']}}" class="fa fa-linkedin" target="_blank"></a>
+            <a href="{{blogInfo['vimeo']}}" class="fa fa-vimeo" target="_blank"></a>
+        </div>
+    </div>
+</div>
+{% endif %}

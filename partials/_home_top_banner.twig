@@ -1,0 +1,67 @@
+{% set ctaBackgroundImage = "" %}
+{% set ctaVideoUrl = "" %}
+{% if keyword is defined and keyword is not empty %}
+    {% set cta = _CallToAction.getKeywordBasedCTA(keyword)%}
+    {% if cta is defined and cta|length > 0 %}
+        {% if cta.id is defined and cta.id is not empty %}
+            {% if(cta.media['id'] is defined and cta.media['id'] is not empty) %}
+                {% set ctaBackgroundImage = _Media.getMediaUrl(cta.media,0,0,{'crop': 'fill'}) %}
+            {% endif %}
+            {{this.registerCss("
+                .cta_block_"~cta.id~" .button {
+                    border-color: "~cta.button['backgroundColor']~";
+                    background: "~cta.button['backgroundColor']~"
+                }
+                .cta_block_"~cta.id~" .button:hover {
+                    color: "~cta.button['backgroundColor']~";
+                    border-color: "~cta.button['backgroundColor']~";
+                    background: "~cta.button['backgroundColor']~";
+                } 
+            ")}}
+            {% set ctaWithMeta = _CallToAction.get({keywords: keyword, includeMetaInfo: 1})%}
+            {% if ctaWithMeta is defined and ctaWithMeta|length > 0 %}
+                {% if ctaWithMeta.additionalInfo is defined and ctaWithMeta.additionalInfo|length > 0 %}
+                    {% set ctaVideoUrl =ctaWithMeta.additionalInfo.cta_video_url %}
+                {% endif%}
+            {% endif%}
+            <div class="banner__section image-covered" {% if ctaVideoUrl is defined and ctaVideoUrl is not empty %}{{'video'}}{% endif%} cta_block_{{cta.id}}" {% if ctaBackgroundImage is not empty or cta.backgroundColor is not empty %} style="{{ (ctaBackgroundImage is not empty) ? 'background-image: url('~ctaBackgroundImage~');' : ''}}{{ (cta.backgroundColor is not empty) ? 'background-color: '~cta.backgroundColor~';' : ''}}"{% endif %}>
+                <div class="banner__section--ltArt">
+                    <svg version="1.1" class="svg-inject" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="568.906px" height="771.222px" viewBox="0 0 568.906 771.222" enable-background="new 0 0 568.906 771.222"
+                         xml:space="preserve">
+                        <path opacity="0.9" fill="#82BD41" d="M0,770.195c0,0,5.718,0.006,8.578,0.012c76.991,0.15,153.454-6.253,225.284-36.013
+                              c67.469-27.951,127.475-71.106,179.82-121.679c95.354-92.125,149.316-229.947,153.785-361.487
+                              c1.469-43.204-2.611-86.635-11.299-128.958c-4.229-20.608-9.508-41.028-16.18-60.989C537.699,54.233,521.158,0,515.07,0h-80.752
+                              h-96.473h-160.49H0V770.195z"/>
+                    </svg>
+
+                </div>
+                <div class="banner__section--rtArt">
+                    <svg version="1.1" class="svg-inject" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+                        <path fill="#E79B24" d="M500,0v25.432v33.033v44.576v276.337V500h-92.567H174.199c0,0,16.892-84.835,43.919-135.135
+                              c0,0,63.813-131.381,85.961-156.156C304.079,208.709,397.125,65.315,500,0z"/>
+                    </svg>
+                </div>
+                <div class="banner__section__content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="banner__section__content-area">
+                                    {% if ctaVideoUrl is defined and ctaVideoUrl is not empty %}
+                                                <a data-fancybox href="{{ctaVideoUrl}}" class="play-icon"></a>
+                                    {% endif%}
+                                    <div class="banner__section__content--title">{{cta.title |raw}}</div>
+                                    <div class="banner__section__content--description">{{cta.description |raw}}</div>
+                                    {% if cta.button.text is defined and cta.button.text is not empty %}
+                                        <a href="{{cta.button['url']}}" target="_blank" class="banner__section__content--button text-center button button--radius button--small button--blue upper">{{cta.button['text'] |raw |upper}}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endif %}

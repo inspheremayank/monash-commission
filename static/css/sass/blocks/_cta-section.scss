@@ -1,0 +1,137 @@
+/* Page Footer section
+================================ */
+.cta-wrap {
+    position: relative;
+    z-index: 10;
+    &__main {
+        @include flexbox();
+        position: relative;
+        z-index: 12;
+        &--title {
+            @include font-size(50);
+            color: $white;
+        }
+        &--description {
+            @include font-size(24);
+            @extend .font-bold;
+            color: $white;
+        }
+        &--smallContent {
+            margin-top: 10px;
+            color: $grey;
+        }
+        &--buttons {
+            @include margin-top(30);
+            a {
+                @include margin(0 8);
+            }
+            @media #{$media-ipadSmall} {
+                @include flexbox();
+                @include flex-direction(column,vertical);
+                width: $viewportSize;
+                a {
+                    @include margin(8 0);
+                    text-align: center;
+                }
+            }
+        }
+    }
+    &.blue-bg {
+        background-color: $blue;
+    }
+    &.bg-image {
+        @extend .image-covered;
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            @include size(#{$viewportSize});
+            z-index: 11;
+            background-color: rgba($white, 0.8);
+        } 
+    }
+    @include padding(40 10);
+    &__action {
+        @include padding(0 10);
+        .cta-wrap__main {
+            @include flex-direction(column,vertical);
+            @include align-items(flex-start);
+            overflow: hidden;
+            height: $viewportSize;
+            @include padding-left(15);
+            @include padding-top(15);
+            background: #002d56 none repeat scroll 0 0;
+            height: 230px;
+            &--title {
+                color: $white;
+                @include font-size(22);
+                @extend .font-medium;
+                @include padding-top(10);
+                z-index: 12;
+                
+            }
+            &--description {
+                color: $white;
+                @include font-size(14);
+                @extend .font-regular;
+            }
+            &--button {
+                @include margin-top(20);
+                z-index: 12;
+            }
+            &--image {
+                position: absolute;
+                right: -22px;
+                bottom: -28px;
+                width: 165px;
+                height: 180px;
+                @include border-radius(50%);
+                overflow: hidden;
+                z-index: 10;
+                @media #{$media-ipadSmall} {
+                    right: -41px;
+                    width: 200px;
+                    height: $viewportSize;
+                }
+                .img-container {
+                    height: $viewportSize; 
+                }
+            }
+        }
+    }
+    &__about {
+        @include padding(95 0 105);
+        .cta-wrap__main {
+            @include flex-direction(column,vertical);
+            @include align-items(flex-end);
+            @include padding(0 45);
+            
+            &:before {
+                content: '';
+                background-image: url('../images/base-icon.svg');
+                @include size(30px);
+                display: block;;
+                position: absolute;
+                left: 0px;
+                top: 8px;
+                background-size: 30px;
+            }
+            &--title {
+                color: $zblack;
+                @extend .font-regular;
+                @include font-size(40);
+                @media #{$media-ipadSmall} {
+                    @include font-size(25); 
+                }
+            }
+            &--description {
+                @include font-size(20);
+                color: $black;
+                @extend .font-regular;
+                @include margin-top(20);
+                max-width: 750px;
+            }
+        }
+    }
+}

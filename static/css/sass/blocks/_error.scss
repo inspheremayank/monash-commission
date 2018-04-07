@@ -1,0 +1,45 @@
+/* error section
+================================ */
+
+.error {
+    @include padding(40 0 100);
+    border-top: 1px solid rgba($border,0.2);
+    
+    &__content {
+        text-align: center;
+        margin-top: 40px;
+        &-image {
+            height: 60px;
+            display: block;
+            img {
+                @include size(#{$viewportSize});
+            }
+        }
+        h3 {
+            @include font-size(60);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        } 
+        p {
+            @include font-size(20);
+            letter-spacing: 1px;
+            color: $black; 
+            &.large {
+                @include font-size(24);
+            }
+        }
+        &.small {
+            margin: 20px 0 0px;
+            text-align: left; 
+            overflow: hidden;
+            @media #{$media-ipadSmall} {
+                margin: 5px 0 30px;
+            }
+            p {
+                @include font-size();
+                letter-spacing: 1px;
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
