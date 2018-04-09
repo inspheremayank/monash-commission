@@ -4,16 +4,18 @@ $pageTitle = 'Monash Commission';
 include("includes/_global-Head.php");
 ?>
 <?php
-    include("includes/_header.php");
+include("includes/_header.php");
 ?>
 <div class="clearfix"></div>
-<div class="page__content-main error">
-    <div class="container-fluid">
+<div class="page__body">
+    <div class="container">
         <div class="row">
-            <div class="col-12 px-0">
-                <div class="error__content">
-                    <p class="large">Sorry, we can't find the resource you were looking for.</p> 
-                    <a href="/" class="button button--small button--radius button--red">Back to Homepage</a> 
+            <div class="col-12">
+                <div class="page__body--wrapper error">
+                    <div class="error__content">
+                        <p class="large">Sorry, we can't find the resource you were looking for.</p> 
+                        <a href="/" class="button button--small button--radius button--red">Back to Homepage</a> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -21,7 +23,7 @@ include("includes/_global-Head.php");
 </div>
 <div class="clearfix"></div>
 <?php
-    include("includes/_footer.php");
+include("includes/_footer.php");
 ?>
 <div class="clearfix"></div>
 <!-- Begin Script section -->

@@ -453,9 +453,9 @@ ul li, ol li {
   color: #e9ded0 !important; }
 
 .red--bg {
-  background: #d0021b !important; }
+  background: #a20014 !important; }
 .red--color {
-  color: #d0021b !important; }
+  color: #a20014 !important; }
 
 .darkBlue--bg {
   background: #203d7c !important; }
@@ -663,12 +663,12 @@ ul li, ol li {
       background: #44c0eb none repeat scroll 0 0;
       border-color: #44c0eb; }
   .button--red {
-    background: #d0021b none repeat scroll 0 0;
+    background: #a20014 none repeat scroll 0 0;
     color: #ffffff !important;
-    border-color: #d0021b; }
+    border-color: #a20014; }
     .button--red:hover, .button--red:focus {
-      background: #f80220 none repeat scroll 0 0;
-      border-color: #f80220; }
+      background: #cb0019 none repeat scroll 0 0;
+      border-color: #cb0019; }
   .button--green {
     background: #81bd41 none repeat scroll 0 0;
     color: #203d7c !important;
