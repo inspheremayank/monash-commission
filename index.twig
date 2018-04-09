@@ -34,6 +34,14 @@
                                 {% endfor %}
                             </div>
                         {% endif %}
+                        <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}" data-offset="{{limit}}">
+ 
+                        </div>
+                        {% if articles|length >= limit %}
+                            <div class="text-center my-3 loadMoreArticles">
+                                <button class="button button__icon--left button--orange button--radius"><i class="fa fa-spin"></i>Load more</button>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

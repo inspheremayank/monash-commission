@@ -67,8 +67,7 @@ var systemCardTemplate =
 '<div class="card__view {{class}}">'+
         '<div class="{{cardImageClass}} {{cardWithImageClass}} {{videoClass}} swap" data-blog-guid="{{blog.guid}}" data-id="{{articleId}}" data-position="{{position}}" data-social="0" data-article-image="{{imageUrl}}" data-article-text="{{title}}">'+
             '<a href="{{url}}" class="card__view--items">'+
-                '<div class="card__view--content">'+
-                    '<div class="mask"></div>'+
+                
                     '{{#if hasMedia}}'+
                     '<figure class="embed-responsive embed-responsive-16by9">'+
                             '<img class="embed-responsive-item" src="{{imageUrl}}" alt="image" />'+
@@ -92,16 +91,29 @@ var systemCardTemplate =
                             '</ul>'+
                         '</div>'+
                     '{{/if}}'+
-                    '<div class="social-icons"></div>'+
-                    '<div class="content__section-block">'+
+                    '<div class="card__view--content">'+
                         '<div class="content__section">'+
-                            '<div class="content__section-category">Category</div>'+
-                            '<h2 class="content__section-heading">{{title}}</h2>'+
-                            '<div class="content__section-description">{{excerpt}}</div>'+
-                            '<button class="content__section-button">Read more</button>'+
+                            '<div class="social-icons"></div>'+
+                            '<div class="content__section-category upper">{{label}}</div>'+
+                            '<div class="content__section__head">'+
+                                '<div class="content__section__head--heading">{{title}}</div>'+
+                                '<div class="content__section__head--image">'+
+                                    '{{#if hasMedia}}'+
+                                        '<figure class="image-covered" style="background-image: url({{imageUrl}})"></figure>'+
+                                    '{{/if}}'+
+                                    '<div class="video-play"></div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="content__section-description text__dotdot">{{excerpt}}</div>'+
+                            '<div class="content__section-userInfo">'+
+                                '<div class="content__section-userInfo-image image-covered" style="background-image: url({{profileImage}})"></div>'+ 
+                                '<div class="content__section-userInfo-content">'+ 
+                                    '<span>{{article.createdBy.displayName}}</span>'+ 
+                                    '<span class="designation">{{article.createdBy.bio}}</span>'+ 
+                                '</div>'+ 
+                            '</div>'+
                         '</div>'+
-                    '</div>'+
-                '</div>'+
+                    '</div>'+    
             '</a>'+
         '</div>'+
     '</div>';
@@ -110,8 +122,8 @@ var socialCardTemplate =
     '<div class="card__view {{class}}">'+
         '<div class="{{mediaClass}} {{videoClass}} swap {{socialClass}}" data-blog-guid="{{blog.guid}}" data-id="{{socialId}}" data-position="{{position}}" data-social="1" data-article-image="{{social.media.path}}" data-article-text="{{social.content}}" data-user-image="{{social.user.media.path}}" data-user-name="{{social.user.name}}">'+
             '<a href="{{social.url}}" class="card__view--items socialCard" data-blog-guid="{{social.blog.guid}}" data-guid="{{social.guid}}">'+
-                '<div class="card__view--content">'+
-                    '<div class="mask"></div>'+
+
+
                     '{{#if social.hasMedia}}'+
                         '<figure class="embed-responsive embed-responsive-16by9">'+
                                 '<img class="embed-responsive-item" src="{{imageUrl}}" alt="image" />'+
@@ -135,16 +147,30 @@ var socialCardTemplate =
                             '</ul>'+
                         '</div>'+
                     '{{/if}}'+
-                    '<div class="social-icons"></div>'+
-                    '<div class="content__section-block">'+
+                    '<div class="card__view--content">'+
                         '<div class="content__section">'+
-                            '<div class="content__section-category">Category</div>'+
-                            '<h2 class="content__section-heading">{{social.blog.title}}</h2>'+
+                            '<div class="social-icons"></div>'+
+                            '<div class="content__section-category upper">{{social.source}}</div>'+
+                            '<div class="content__section__head">'+
+                                '<div class="content__section__head--heading">{{social.blog.title}}</div>'+
+                                '<div class="content__section__head--image">'+
+                                    '{{#if social.hasMedia}}'+
+                                        '<figure class="image-covered" style="background-image: url({{imageUrl}})"></figure>'+
+                                    '{{/if}}'+
+                                    '<div class="video-play"></div>'+
+                                '</div>'+
+                            '</div>'+
                             '<div class="content__section-description text__dotdot">{{social.content}}</div>'+
-                            '<button class="content__section-button">Read more</button>'+
+                            '<div class="content__section-userInfo">'+
+                                '<div class="content__section-userInfo-image image-covered" style="background-image: url({{profileImage}})"></div>'+ 
+                                    '<div class="content__section-userInfo-content">'+ 
+                                        '<span>{{social.user.name}}</span>'+ 
+                                        '<span class="designation">{{createdBy.bio}}</span>'+ 
+                                    '</div> '+
+                                '</div>'+
+                            '</div>'+
                         '</div>'+
-                    '</div>'+
-                '</div>'+
+                    '</div>'+    
             '</a>'+
         '</div>'+
     '</div>';

@@ -355,7 +355,7 @@ HomeController.Listing = (function ($) {
                         for (var i in data.articles) {
                             console.log(_appJsConfig.templatePath);
                             
-                            data.articles[i]['class'] = 'col-12 col-md-12 col-lg-6 card__view-half';
+                            data.articles[i]['class'] = 'col-12 col-md-6 col-lg-4 card__view-third';
                             data.articles[i]['templatePath'] = _appJsConfig.templatePath;
                             data.articles[i]['pinTitle'] = (data.articles[i].isPinned == 1) ? 'Un-Pin Article' : 'Pin Article';
                             data.articles[i]['pinText'] = (data.articles[i].isPinned == 1) ? 'UN-PIN' : 'PIN';
