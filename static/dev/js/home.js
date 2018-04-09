@@ -91,16 +91,14 @@ HomeController.Listing = (function ($) {
     };
     
     var addDotClass = function() {
-        if ($(window).width() < 768) {
-            $('.text__dotdot').ellipsis({
-                responsive: true,
-                lines: 3
-            });
-            $('.content__section__head--heading').ellipsis({
-                responsive: true,
-                lines: 2
-            });
-        };
+        $('.text__dotdot').ellipsis({
+            responsive: true,
+            lines: 3
+        });
+        $('.content__section__head--heading').ellipsis({
+            responsive: true,
+            lines: 2
+        });
     }
     
 //    var excerptContentSlide = function() {
@@ -443,14 +441,15 @@ HomeController.Listing = (function ($) {
                             initSwap();
                         }
                         videoPlayFancybox();
+                        addDotClass();
                         bindSocialPostPopup();
                     }
                 },
                 beforeSend: function (jqXHR, settings) {
-                    $(btnObj).html('<button class="button button__icon--left button--orange button--radius"><i class="fa fa-spinner fa-spin"></i>Load more</button>');
+                    $(btnObj).html('<button class="button button__icon--left button--red button--radius"><i class="fa fa-spinner fa-spin"></i>Load more</button>');
                 },
                 onComplete: function (jqXHR, textStatus) {
-                    $(btnObj).html('<button class="button button__icon--left button--orange button--radius"><i class="fa fa-spin"></i>Load more</button>');
+                    $(btnObj).html('<button class="button button__icon--left button--red button--radius"><i class="fa fa-spin"></i>Load more</button>');
                 }
             });
         });
