@@ -1,43 +1,77 @@
-{{ set(this, 'params', {isHomePageOnly: "1"})  }}
-{% set network = _Network.getNetworkData() %}
-{{set(this,'title',(network.title))}}
-{% set limit = 11 %}
-{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
-{% set articles = articlesArr.articles %}
-{#{{_AppHelper.printArray(blogList)}}#}
-{{this.registerJs("HomeController.listing();")}}
-<div class="clearfix"></div>
 <div class="page__body">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="page__body--wrapper">
-                    <div class="card-wrap">
-                        {% if articles|length > 0 %}
-                            <div class="row">
-                                {% if articles[0] is defined %}
-                                    {{this.render('partials/_single-article.twig', {article: articles[0], 'position': 1, class: 'col-12 card__view-full'}) | raw}}
-                                {% endif %}
+                    <div class="blog__wrapper image-covered" style="background-image: url('static/images/image1.jpg')">
+                        <div class="blog__wrapper__userInfo">
+                            <div class="blog__wrapper__userInfo--title">Christine Lagarde</div>
+                            <div class="blog__wrapper__userInfo--description">Passionate about the intersection of public policy and economics.</div>
+                            <div class="blog__wrapper__userInfo--social">
+                                <a href="javascript:;" class="fa fa-linkedin-square"></a>
+                                <a href="javascript:;" class="fa fa-twitter"></a>
                             </div>
-                            <div class="row">
-                                {% for i in 1..3 %}
-                                    {% if articles[i] is defined %}
-                                        {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'col-12 col-md-6 col-lg-4 card__view-third'}) | raw}}
-                                    {% endif %}
-                                {% endfor %}
+                        </div>
+                        <div class="blog__wrapper__userDetail">
+                            <div class="blog__wrapper__userDetail__profile">
+                                <div class="blog__wrapper__userDetail__profile--image image-covered" style="background-image: url('static/images/icons/avatar.png')"></div>
+                                <div class="blog__wrapper__userDetail__profile--content">
+                                    <div class="blog__wrapper__userDetail__profile--content--title">Christine Lagarde</div>
+                                    <div class="blog__wrapper__userDetail__profile--content--des">
+                                        <span>Economist</span><span>Leader</span><span>Thinker</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row">
-                                {% for i in 4..5 %}
-                                    {% if articles[i] is defined %}
-                                        {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'col-12 col-md-6 card__view-half'}) | raw}}
-                                    {% endif %}
-                                {% endfor %}
+                            <div class="blog__wrapper__userDetail--content">
+                                <p>Christine Madeleine Odette Lagarde  is a French lawyer and politician who has been the Managing Director (MD) of the International Monetary Fund (IMF) since 5 July 2011.</p>
+                                <p>Previously, she held various ministerial posts in the French government: she was Minister of Economic Affairs, Finance and Employment, Minister of Agriculture and Fishing and Minister of Trade in the government of Dominique de Villepin. Lagarde was the first woman to become finance minister of a G8 economy and is the first woman to head the IMF. A noted anti-trust and labour lawyer, Lagarde was the first female chair of the international law firm Baker & McKenzie.</p>
                             </div>
-                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrap">
+                    <div class="row">
+                        <div class="card__view col-12 card__view-full">
+                            <div class="">
+                                <a href="javascript:;" class="card__view--items">
+                                    <figure class="embed-responsive embed-responsive-16by9">
+                                        <img src="static/images/image1.jpg" alt="image" class="embed-responsive-item" />
+                                        <div class="video-play"></div>
+                                    </figure>
+                                    <div class="optionSet">
+                                        <ul>
+                                            <li>Hide <span class="fa fa-eye-slash"></span></li>
+                                            <li>Pin <span class="fa fa-map-marker"></span></li>
+                                            <li>Edit <span class="fa fa-cog"></span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="card__view--content">
+                                        <div class="content__section">
+                                            <div class="social-icons"></div>
+                                            <div class="content__section-category upper">Finance</div>
+                                            <div class="content__section__head">
+                                                <div class="content__section__head--heading">A lose-lose trade war looms between America and China, and everyone suffers</div>
+                                                <div class="content__section__head--image">
+                                                    <figure class="image-covered" style="background-image: url('static/images/image1.jpg')"></figure>
+                                                    <div class="video-play"></div>
+                                                </div>
+                                            </div>
+                                            <div class="content__section-description text__dotdot">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+                                            <div class="content__section-userInfo"> 
+                                                <div class="content__section-userInfo-image image-covered" style="background-image: url('static/images/test-image.jpg')"></div> 
+                                                <div class="content__section-userInfo-content"> 
+                                                    <span>Rebekah Brown</span> 
+                                                    <span class="designation">Director of Monash Sustainable Development Institute</span> 
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="clearfix"></div>
