@@ -358,7 +358,7 @@ HomeController.Listing = (function ($) {
                             data.articles[i]['class'] = 'col-12 col-md-6 col-lg-4 card__view-third';
                             data.articles[i]['templatePath'] = _appJsConfig.templatePath;
                             data.articles[i]['pinTitle'] = (data.articles[i].isPinned == 1) ? 'Un-Pin Article' : 'Pin Article';
-                            data.articles[i]['pinText'] = (data.articles[i].isPinned == 1) ? 'UN-PIN' : 'PIN';
+                            data.articles[i]['pinText'] = (data.articles[i].isPinned == 1) ? 'Un-Pin' : 'Pin';
                             data.articles[i]['pinCls'] = (data.articles[i].isPinned == 1) ? 'selected' : '';
                             data.articles[i]['readingTime'] = renderReadingTime(data.articles[i].readingTime);
                             data.articles[i]['mediaClass'] = 'without-image';
