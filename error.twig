@@ -1,51 +1,14 @@
-{{ set(this, 'params', {isHomePageOnly: "1"})  }}
-{% set network = _Network.getNetworkData() %}
-{{set(this,'title',(network.title))}}
-{% set limit = 11 %}
-{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
-{% set articles = articlesArr.articles %}
-{#{{_AppHelper.printArray(blogList)}}#}
-{{this.registerJs("HomeController.listing();")}}
-<div class="clearfix"></div>
 <div class="page__body">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="page__body--wrapper">
-                    <div class="card-wrap">
-                        {% if articles|length > 0 %}
-                            <div class="row">
-                                {% if articles[0] is defined %}
-                                    {{this.render('partials/_single-article.twig', {article: articles[0], 'position': 1, class: 'col-12 card__view-full'}) | raw}}
-                                {% endif %}
-                            </div>
-                            <div class="row">
-                                {% for i in 1..3 %}
-                                    {% if articles[i] is defined %}
-                                        {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'col-12 col-md-6 col-lg-4 card__view-third'}) | raw}}
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                            <div class="row">
-                                {% for i in 4..5 %}
-                                    {% if articles[i] is defined %}
-                                        {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'col-12 col-md-6 card__view-half'}) | raw}}
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                        <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}" data-offset="{{limit}}">
- 
-                        </div>
-                        {% if articles|length >= limit %}
-                            <div class="text-center my-3 loadMoreArticles">
-                                <button class="button button__icon--left button--orange button--radius"><i class="fa fa-spin"></i>Load more</button>
-                            </div>
-                        {% endif %}
+                <div class="page__body--wrapper error">
+                    <div class="error__content">
+                        <p class="large">Sorry, we can't find the resource you were looking for.</p> 
+                        <a href="/" class="button button--small button--radius button--red">Back to Homepage</a> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="clearfix"></div>
