@@ -43,3 +43,11 @@
         }
     }
 }
+
+.search {
+    &__content {
+        @include padding(26 46 46);
+        @include font-size(30);
+        letter-spacing: 0.9px;
+    }
+}

@@ -187,16 +187,16 @@ h4, h5, h6 {
 .header-heading {
   margin-bottom: 15px; }
 
-.font-light, .header__main__icons--search-box .input-group .input-field, .footer-bottom__navigation a, .card__view--content .content__section--description {
+.font-light, .header__main__icons--search-box .input-group .input-field, .footer-bottom__navigation a, .cta-wrap__main--title, .cta-wrap__main--description, .card__view--content .content__section--description {
   font-family: "RobotoLight", Arial, sans-serif; }
 
-.font-regular, .getForm__wrapper-form p, .banner__section__content--title, .banner__section__content--description, .table--customized tbody td span, .cta-wrap__action .cta-wrap__main--description, .cta-wrap__about .cta-wrap__main--title, .cta-wrap__about .cta-wrap__main--description, .card__view--content .content__section-userInfo-content .designation {
+.font-regular, .getForm__wrapper-form p, .banner__section__content--title, .banner__section__content--description, .table--customized tbody td span, .card__view--content .content__section-userInfo-content .designation {
   font-family: "RobotoRegular", Arial, sans-serif; }
 
-.font-medium, .getForm__wrapper-form .title, .header__main__navigation--links .user--title, .cta-wrap__action .cta-wrap__main--title, .card__view--content .content__section-userInfo-content .title {
+.font-medium, .getForm__wrapper-form .title, .header__main__navigation--links .user--title, .cta-wrap__main__input-form .button, .card__view--content .content__section-userInfo-content .title {
   font-family: "RobotoMedium", Arial, sans-serif; }
 
-.font-bold, .table--customized thead th, .table--customized tbody td, .cta-wrap__main--description, .card__view--content .content__section--category {
+.font-bold, .table--customized thead th, .table--customized tbody td, .card__view--content .content__section--category {
   font-family: "RobotoBold", Arial, sans-serif; }
 
 a, a:link, a:visited, a:active {
@@ -658,6 +658,13 @@ ul li, ol li {
     .button--black:hover, .button--black:focus {
       background: #141414 none repeat scroll 0 0;
       border-color: #141414; }
+  .button--white {
+    background: #ffffff none repeat scroll 0 0;
+    color: #000000 !important;
+    border-color: #ffffff; }
+    .button--white:hover, .button--white:focus {
+      background: #ebebeb none repeat scroll 0 0;
+      border-color: #ebebeb; }
   .button--lightBlue {
     background: #1fb4e7 none repeat scroll 0 0;
     color: #ffffff !important;
@@ -1212,51 +1219,57 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
 .cta-wrap {
   position: relative;
   z-index: 10;
-  padding: 2.5rem 0.625rem; }
+  background-color: #000000;
+  padding: 3.3125rem 0rem 2rem; }
   .cta-wrap__main {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
     position: relative;
     z-index: 12; }
     .cta-wrap__main--title {
-      font-size: 3.125rem;
-      line-height: 3.75rem;
+      font-size: 2.25rem;
+      line-height: 2.7rem;
       color: #ffffff; }
     .cta-wrap__main--description {
-      font-size: 1.5rem;
-      line-height: 1.8rem;
-      color: #ffffff; }
-    .cta-wrap__main--smallContent {
-      margin-top: 10px;
-      color: #a0a0a2; }
-    .cta-wrap__main--buttons {
-      margin-top: 1.875rem; }
-      .cta-wrap__main--buttons a {
-        margin: 0rem 0.5rem; }
-      @media screen and (max-width: 767px) {
-        .cta-wrap__main--buttons {
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -moz-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-flex-direction: column;
-          -moz-flex-direction: column;
-          -ms-flex-direction: column;
-          flex-direction: column;
-          -webkit-box-orient: vertical;
-          -moz-box-orient: vertical;
-          -ms-box-orient: vertical;
-          box-orient: vertical;
-          width: 100%; }
-          .cta-wrap__main--buttons a {
-            margin: 0.5rem 0rem;
-            text-align: center; } }
-  .cta-wrap.blue-bg {
-    background-color: #00a6ce; }
+      font-size: 1.125rem;
+      line-height: 1.35rem;
+      line-height: 29px;
+      max-width: 350px;
+      color: #ffffff;
+      margin-top: 0.625rem; }
+    .cta-wrap__main__input-form {
+      margin-top: 0.9375rem;
+      max-width: 350px; }
+      .cta-wrap__main__input-form .form-group input {
+        border: none;
+        border-bottom: 1px solid #ffffff;
+        background: none repeat scroll 0 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        color: #ffffff; }
+        .cta-wrap__main__input-form .form-group input::-webkit-input-placeholder {
+          color: #ffffff; }
+        .cta-wrap__main__input-form .form-group input:-moz-placeholder {
+          /* Firefox 18- */
+          color: #ffffff; }
+        .cta-wrap__main__input-form .form-group input::-moz-placeholder {
+          /* Firefox 19+ */
+          color: #ffffff; }
+        .cta-wrap__main__input-form .form-group input:-ms-input-placeholder {
+          color: #ffffff; }
+        .cta-wrap__main__input-form .form-group input:focus {
+          border-color: #a20014; }
   .cta-wrap.bg-image:before {
     content: '';
     position: absolute;
@@ -1265,98 +1278,7 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
     width: 100%;
     height: 100%;
     z-index: 11;
-    background-color: rgba(255, 255, 255, 0.8); }
-  .cta-wrap__action {
-    padding: 0rem 0.625rem; }
-    .cta-wrap__action .cta-wrap__main {
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      -ms-box-orient: vertical;
-      box-orient: vertical;
-      -webkit-align-items: flex-start;
-      -moz-align-items: flex-start;
-      -ms-align-items: flex-start;
-      align-items: flex-start;
-      overflow: hidden;
-      height: 100%;
-      padding-left: 0.9375rem;
-      padding-top: 0.9375rem;
-      background: #002d56 none repeat scroll 0 0;
-      height: 230px; }
-      .cta-wrap__action .cta-wrap__main--title {
-        color: #ffffff;
-        font-size: 1.375rem;
-        line-height: 1.65rem;
-        padding-top: 0.625rem;
-        z-index: 12; }
-      .cta-wrap__action .cta-wrap__main--description {
-        color: #ffffff;
-        font-size: 0.875rem;
-        line-height: 1.05rem; }
-      .cta-wrap__action .cta-wrap__main--button {
-        margin-top: 1.25rem;
-        z-index: 12; }
-      .cta-wrap__action .cta-wrap__main--image {
-        position: absolute;
-        right: -22px;
-        bottom: -28px;
-        width: 165px;
-        height: 180px;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-        overflow: hidden;
-        z-index: 10; }
-        @media screen and (max-width: 767px) {
-          .cta-wrap__action .cta-wrap__main--image {
-            right: -41px;
-            width: 200px;
-            height: 100%; } }
-        .cta-wrap__action .cta-wrap__main--image .img-container {
-          height: 100%; }
-  .cta-wrap__about {
-    padding: 5.9375rem 0rem 6.5625rem; }
-    .cta-wrap__about .cta-wrap__main {
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      -ms-box-orient: vertical;
-      box-orient: vertical;
-      -webkit-align-items: flex-end;
-      -moz-align-items: flex-end;
-      -ms-align-items: flex-end;
-      align-items: flex-end;
-      padding: 0rem 2.8125rem; }
-      .cta-wrap__about .cta-wrap__main:before {
-        content: '';
-        background-image: url("../images/base-icon.svg");
-        width: 30px;
-        height: 30px;
-        display: block;
-        position: absolute;
-        left: 0px;
-        top: 8px;
-        background-size: 30px; }
-      .cta-wrap__about .cta-wrap__main--title {
-        color: #000000;
-        font-size: 2.5rem;
-        line-height: 3rem; }
-        @media screen and (max-width: 767px) {
-          .cta-wrap__about .cta-wrap__main--title {
-            font-size: 1.5625rem;
-            line-height: 1.875rem; } }
-      .cta-wrap__about .cta-wrap__main--description {
-        font-size: 1.25rem;
-        line-height: 1.5rem;
-        color: #505050;
-        margin-top: 1.25rem;
-        max-width: 750px; }
+    background: linear-gradient(to left, transparent, #000000); }
 
 /* cards section
 ================================ */
@@ -1809,6 +1731,12 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
         line-height: 1.2rem;
         letter-spacing: 1px;
         margin-bottom: 0px; }
+
+.search__content {
+  padding: 1.625rem 2.875rem 2.875rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  letter-spacing: 0.9px; }
 
 /* blog section
 ================================ */

@@ -73,6 +73,15 @@
             border-color: lighten($zblack, 8%);
         }
     }
+    &--white {
+        background: $white none repeat scroll 0 0;
+        color: $zblack !important;
+        border-color: $white;
+        &:hover, &:focus {
+            background: darken($white, 8%) none repeat scroll 0 0;
+            border-color: darken($white, 8%);
+        }
+    }
     &--lightBlue {
         background: $light-blue none repeat scroll 0 0;
         color: $white !important;
