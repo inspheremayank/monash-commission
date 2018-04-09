@@ -90,6 +90,19 @@ HomeController.Listing = (function ($) {
         });
     };
     
+    var addDotClass = function() {
+        if ($(window).width() < 768) {
+            $('.text__dotdot').ellipsis({
+                responsive: true,
+                lines: 3
+            });
+            $('.content__section__head--heading').ellipsis({
+                responsive: true,
+                lines: 2
+            });
+        };
+    }
+    
 //    var excerptContentSlide = function() {
 //        $(".excerpt-slideUp").each(function() {
 //            var userHeight = $(this).find('.content__section-userInfo').outerHeight(true);
@@ -193,6 +206,7 @@ HomeController.Listing = (function ($) {
     var attachEvents = function () {
         bindSocialPostPopup();
 //        excerptContentSlide();
+          addDotClass();
         if (_appJsConfig.isUserLoggedIn === 1 && _appJsConfig.userHasBlogAccess === 1) {
             //Bind pin/unpin article event
             bindPinUnpinArticle();
@@ -317,6 +331,7 @@ HomeController.Listing = (function ($) {
                             videoPlayFancybox();
 
 //                            excerptContentSlide();
+                            addDotClass();
                             bindSocialPostPopup();
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
@@ -354,8 +369,11 @@ HomeController.Listing = (function ($) {
 
                         for (var i in data.articles) {
                             console.log(_appJsConfig.templatePath);
-                            
-                            data.articles[i]['class'] = 'col-12 col-md-6 col-lg-4 card__view-third';
+                            if(btnObj.data('class')){
+                                data.articles[i]['class'] = btnObj.data('class');
+                            }else{
+                                data.articles[i]['class'] = 'col-12 col-md-6 col-lg-4 card__view-third';
+                            }
                             data.articles[i]['templatePath'] = _appJsConfig.templatePath;
                             data.articles[i]['pinTitle'] = (data.articles[i].isPinned == 1) ? 'Un-Pin Article' : 'Pin Article';
                             data.articles[i]['pinText'] = (data.articles[i].isPinned == 1) ? 'Un-Pin' : 'Pin';

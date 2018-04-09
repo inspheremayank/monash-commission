@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="card-wrap">
-                    <div class="row">
+                    <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}" data-offset="{{limit}}">
                         {% for i in 0..8 %}
                             {% if articles[i] is defined %}
                                 {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'card__view col-12 card__view-full'}) | raw}}
@@ -59,6 +59,11 @@
                         {% endfor %}                        
                     </div>
                 </div>
+                {% if articles|length >= limit %}
+                    <div class="text-center my-3 loadMoreArticles" data-class="card__view col-12 card__view-full">
+                        <button class="button button__icon--left button--orange button--radius"><i class="fa fa-spin"></i>Load more</button>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

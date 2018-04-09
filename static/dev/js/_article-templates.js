@@ -91,7 +91,7 @@ var systemCardTemplate =
                             '</ul>'+
                         '</div>'+
                     '{{/if}}'+
-                    '<div class="card__view--content flex-last">'+
+                    '<div class="card__view--content flex-first">'+
                         '<div class="content__section">'+
                             '<div class="social-icons"></div>'+
                             '<div class="content__section--category upper">{{label}}</div>'+
@@ -147,7 +147,7 @@ var socialCardTemplate =
                             '</ul>'+
                         '</div>'+
                     '{{/if}}'+
-                    '<div class="card__view--content flex-last">'+
+                    '<div class="card__view--content flex-first">'+
                         '<div class="content__section">'+
                             '<div class="social-icons"></div>'+
                             '<div class="content__section--category upper">{{social.source}}</div>'+
