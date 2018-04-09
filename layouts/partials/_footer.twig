@@ -1,0 +1,40 @@
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="footer-logo">
+                    {% set mainLogo = network.templatePath~'/static/images/logos/logo-white.svg' %}
+                        {% set logoUrl = network.networkLogoLinkUrl %}
+                        {% if network.logoMedia | length > 0 %}
+                            {% set mainLogo = _Media.getMediaUrl(network.logoMedia, 177, 65, {'crop': 'limit'} )%}
+                        {% endif %}
+                    <a href="{{logoUrl}}">
+                        <img class="img-fluid" src="{{mainLogo}}" alt="image" />
+                    </a>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-bottom__navigation">
+                        {% set menuItemsFooter = blog.blogFooterMenu %}
+                            {% for i in 0..2 %}
+                                {% if menuItemsFooter[i] is defined %}
+                                    {% set menuItem = menuItemsFooter[i] %}
+                                    <a href="{{menuItem.link}}">{{ ((menuItem.label is empty) ? ((menuItem.pageTitle is empty)? menuItem.blogTitle : menuItem.pageTitle) : menuItem.label )}}</a>
+                                {% endif %}
+                            {% endfor %}
+                    </div>
+                    <div class="footer-bottom__social">
+                        {%if blogInfo['linkedin'] is defined and blogInfo['linkedin'] is not empty%}
+                            <a href="{{blogInfo['linkedin']}}" class="fa fa-linkedin-square" target="_blank"></a>
+                        {% endif %}
+                        {%if blogInfo['twitter'] is defined and blogInfo['twitter'] is not empty %}
+                            <a href="{{blogInfo['twitter']}}" class="fa fa-twitter" target="_blank"></a>
+                        {% endif %}
+                        {%if blogInfo['youtube'] is defined and blogInfo['youtube'] is not empty%}
+                            <a href="{{blogInfo['youtube']}}" class="fa fa-youtube-square" target="_blank"></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

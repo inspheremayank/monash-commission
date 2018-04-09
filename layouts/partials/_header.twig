@@ -1,0 +1,81 @@
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header__top--logo">
+                        {% set mainLogo = network.templatePath~'/static/images/logos/monash-commission-logo.svg' %}
+                        {% set logoUrl = network.networkLogoLinkUrl %}
+                        {% if network.logoMedia | length > 0 %}
+                            {% set mainLogo = _Media.getMediaUrl(network.logoMedia, 177, 65, {'crop': 'limit'} )%}
+                        {% endif %}
+                        <a href="{{logoUrl}}">
+                            <img class="img-fluid" src="{{mainLogo}}" alt="Monash Commission" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__main">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header__main__wrap">
+                        <div class="header__main--logo">
+                            <a href="javascript:;">
+                                <img class="img-fluid" src="{{mainLogo}}" alt="Monash Commission" />
+                            </a>
+                        </div>
+                        <div class="header__main__navigation">                            
+                            <ul>
+                                {% set menuItems = blog.blogHeaderMenu %}
+                                {% for i in 0..4 %}
+                                    {% if menuItems[i] is defined %}
+                                        {% set blogThumbImage = "" %}
+                                        {% set menuBlogData = _Blog.get({'blogGuid': menuItems[i].blogGuid}) %}
+                                        {% if menuBlogData.media['thumb']['path']is not empty %}
+                                            {% set blogThumbImage = _Media.getMediaUrl(menuBlogData.media['thumb'], 100, 100, {
+                                                radius: 'max',
+                                                crop: 'thumb',
+                                                gravity: 'face'
+                                            }) %}
+                                        {% endif %}
+                                        <li class="header__main__navigation--items">
+                                            <a href="{{menuItems[i].link |raw}}" {% if menuItems[i].target != "" %}target="{{menuItems[i].target}}"{% endif %} class="header__main__navigation--links">
+                                                <div class="user--image image-covered" style="background-image:url('{{blogThumbImage}}')"></div>
+                                                <div class="user--title">
+                                                    {{menuItems[i].blogTitle | split(' ')[0]}} <span class="user--title--break"> {{menuItems[i].blogTitle | split(' ')[1]}}</span>
+                                                    <div class="user--line-bar" {% if menuBlogData.additionalInfo.color is defined and menuBlogData.additionalInfo.color is not empty %} style="background-color: {{menuBlogData.additionalInfo.color}}" {% endif %}></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}                                
+                            </ul>
+                        </div>
+                        <div class="header__main__icons">
+                            <div class="header__main__icons--search-box">
+                                <div class="input-group">
+                                    <input type="text" placeholder="Diplomacy in the middle east" class="input-field">
+                                    <button class="search-button"><span class="fa fa-search"></span></button>
+                                </div>
+                            </div>
+                            <div class="header__main__icons--list">
+                                <a href="javascript:;" class="icons searchBtn fa fa-search"></a>
+                                <a href="javascript:;" class="icons menu fa fa-navicon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Begin Responsive Profile -->
+    <div class="responsive-standalone">
+        <a href="javascript:;" class="responsive-standalone-close"><span class="fa fa-close" aria-hidden="true"></span></a>
+        <div class="standalone-menu"></div>
+    </div>
+    <div class="responsive-standalone-overlay"></div>
+    <!-- //End Responsive Profile -->
+</header>

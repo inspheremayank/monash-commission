@@ -1,0 +1,34 @@
+{
+    "compressHtml" : true,
+    "module": {
+        "debug": {
+            "enabled": false
+        },
+        "event": {
+            "enabled": false
+        },
+        "styling": {
+            "enabled": false
+        },
+        "page": {
+            "contentEditor": {
+                "enabled": true
+            }
+        },
+        "cta" : {
+            "keywords" : {
+            }
+        },
+        "blog": {
+            "extendedAttributes": [
+                {
+                    "label" : "Color",
+                    "name": "color",
+                    "type": "inputbox",
+                    "placeholder" : "Enter color code (e.g. #000000)",
+                    "required": false
+                }
+            ]
+        }
+    }
+}
