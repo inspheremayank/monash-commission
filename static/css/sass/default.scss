@@ -24,7 +24,7 @@ body {
     height: auto; 
     background:$defaultbg none repeat scroll 0 0;
     color: $black2;
-    font-family: $primary-fonts-medium;
+    font-family: $primary-fonts-regular;
     font-weight: $weightRegular;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -37,6 +37,9 @@ ul li, ol li {
         background: $white none repeat scroll 0 0;
         @include margin-top(-112);
         min-height: 150px;
+        @media #{$media-ipadPortrait} { 
+            @include margin-top(100);
+        }
     }
 }
 .getForm__wrapper {

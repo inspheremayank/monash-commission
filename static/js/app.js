@@ -45,10 +45,33 @@
             });
         }
         ;
-    }
+    };
+    //Function for card text truncate
+    $('.content__section__head--heading, .text__dotdot').ellipsis({
+        responsive: true
+    });
+    $('.card__view-full .content__section__head--heading').ellipsis({
+        responsive: true,
+        lines: 2
+    });
+    function truncate() {
+        if ($(window).width() < 768) {
+            $('.text__dotdot').ellipsis({
+                responsive: true,
+                lines: 3
+            });
+            $('.content__section__head--heading').ellipsis({
+                responsive: true,
+                lines: 2
+            });
+        };
+
+    };
     scrollHeight();
+    truncate();
     $(window).resize(function () {
         scrollHeight();
+        truncate();
     });
     
     // Function for search icon
@@ -89,12 +112,7 @@
             }
         }
     });
-    
-    //Function for card text truncate
-    $('.content__section-heading, .text__dotdot').ellipsis({
-        responsive: true,
-        lines: 2
-    });
+
     //Function for article page figure
     $('.article__main-content figure').each(function () {
         if ($(this).attr('style') !== undefined) {

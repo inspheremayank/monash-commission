@@ -6,7 +6,7 @@
     @media #{$media-ipadPortrait} {
         position: fixed;
         width: $viewportSize;
-        z-index: 99;
+        z-index: 9999;
         @include padding-bottom(0);
     }
     &__top {
@@ -29,7 +29,7 @@
     &__main {
         background: $zblack none repeat scroll 0 0;
         @include padding(30 0 50);
-        z-index: 99 !important;
+        z-index: 999 !important;
         @media #{$media-ipadPortrait} {
             @include padding(15 0);
         }
@@ -82,6 +82,7 @@
                         color: $white;
                         @include font-size(12);
                         @include margin-left(12);
+                        @extend .font-medium;
                         line-height: 1.5;
                         letter-spacing: 0.7px;
                         position: relative;
