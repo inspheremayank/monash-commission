@@ -17,20 +17,26 @@
                     background: none repeat scroll 0 0
                 } 
             ")}}
-            <div class="col-12">
-                <div class="cta-wrap__main" {% if ctaBackgroundImage is not empty or cta.backgroundColor is not empty %} style="{{ (ctaBackgroundImage is not empty) ? 'background-image: url('~ctaBackgroundImage~');' : ''}}{{ (cta.backgroundColor is not empty) ? 'background-color: '~cta.backgroundColor~';' : ''}}"{% endif %}>
-                    <div class="cta-wrap__main--title">{{cta.title |raw}}</div>
-                    <div class="cta-wrap__main--description">{{cta.description |raw}}</div>
-                    <div class="cta-wrap__main__input-form">
-                        <form action="javascript:;">
-                            <div class="form-group">
-                                <label class="sr-only">Email</label>
-                                <input type="email" name="email" required/>
+            <div class="cta-wrap cta-wrap__subscribe {% if ctaBackgroundImage is not empty%}bg-image{% endif %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="cta-wrap__main" {% if ctaBackgroundImage is not empty or cta.backgroundColor is not empty %} style="{{ (ctaBackgroundImage is not empty) ? 'background-image: url('~ctaBackgroundImage~');' : ''}}{{ (cta.backgroundColor is not empty) ? 'background-color: '~cta.backgroundColor~';' : ''}}"{% endif %}>
+                                <div class="cta-wrap__main--title">{{cta.title |raw}}</div>
+                                <div class="cta-wrap__main--description">{{cta.description |raw}}</div>
+                                <div class="cta-wrap__main__input-form">
+                                    <form action="javascript:;">
+                                        <div class="form-group">
+                                            <label class="sr-only">Email</label>
+                                            <input type="email" name="email" required/>
+                                        </div>
+                                        {% if cta.button.text is defined and cta.button.text is not empty %}
+                                            <button class="button button--small button--white upper">{{cta.button['text'] |raw}}</button>
+                                        {% endif %}                            
+                                    </form>
+                                </div>
                             </div>
-                            {% if cta.button.text is defined and cta.button.text is not empty %}
-                                <button class="button button--small button--white upper">{{cta.button['text'] |raw}}</button>
-                            {% endif %}                            
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

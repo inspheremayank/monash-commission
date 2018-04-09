@@ -14,18 +14,28 @@
             <div class="col-12">
                 <div class="page__body--wrapper search">
                     <div class="search__content">Search results for: <span>{{search}}</span></div>
-                    <div class="card-wrap">
-                        <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}" data-offset="{{limit}}">
-                            {% for i in 0..9 %}
-                            {% if articles[i] is defined %}
-                                {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'card__view col-12 card__view-full'}) | raw}}
-                            {% endif %}
-                        {% endfor %} 
+                    {% if articles|length > 0 %}
+                        <div class="card-wrap">
+                            <div class="row ajaxArticles" data-existing-nonpinned-count="{{articlesArr.existingNonPinnedCount}}" data-offset="{{limit}}">
+                                {% for i in 0..9 %}
+                                {% if articles[i] is defined %}
+                                    {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'card__view col-12 card__view-full'}) | raw}}
+                                {% endif %}
+                            {% endfor %} 
+                            </div>
                         </div>
-                    </div>
-                    {% if articles|length >= limit %}
-                        <div class="text-center my-3 loadMoreArticles" data-class="card__view col-12 card__view-full">
-                            <button class="button button__icon--left button--red button--radius"><i class="fa fa-spin"></i>Load more</button>
+                        {% if articles|length >= limit %}
+                            <div class="text-center my-3 loadMoreArticles" data-class="card__view col-12 card__view-full">
+                                <button class="button button__icon--left button--red button--radius"><i class="fa fa-spin"></i>Load more</button>
+                            </div>
+                        {% endif %}                    
+                    {% else %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="search__error small">
+                                    <p>Sorry, we couldn't find what you were looking for</p>
+                                </div>
+                            </div>
                         </div>
                     {% endif %}
                 </div>
@@ -33,23 +43,5 @@
         </div>
     </div>
     <div class="clearfix"></div>
-    <div class="cta-wrap cta-wrap__subscribe bg-image">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="cta-wrap__main">
-                        <div class="cta-wrap__main--title">The Monash Commission</div>
-                        <div class="cta-wrap__main--description">Subscribe to receive essays striaght to your inbox.</div>
-                        <div class="cta-wrap__main__input-form">
-                            <div class="form-group">
-                                <label class="sr-only">Email</label>
-                                <input type="email" />
-                            </div>
-                            <button class="button button--small button--white upper">Subscribe</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{ this.render('partials/_cta-text.twig', {network:network, keyword: 'subscribe', containerClass: 'noMargin-bottom'}) | raw }}
 </div>
