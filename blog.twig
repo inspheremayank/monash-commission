@@ -1,30 +1,54 @@
+{% set network = _Network.getNetworkData() %}
+{{ set(this, 'title', _Blog.getBlogTitle()) }}
+
+{% set blogInfo = _Blog.getBlog() %}
+{% set mediaCoverImage = ''%}
+{% set mediaThumbImage = ''%}
+{%if blogInfo.media['cover']['id'] is defined and blogInfo.media['cover']['id'] is not empty%}
+    {% set mediaCoverImage = _Media.getMediaUrl(blogInfo.media['cover'], 1900, 1900, {crop: 'limit'}) %}  
+{% endif%}
+{%if blogInfo.media['thumb']['id'] is defined and blogInfo.media['thumb']['id'] is not empty%}
+    {% set mediaThumbImage = _Media.getMediaUrl(blogInfo.media['thumb'], 600, 600, {crop:"thumb", gravity:"face", type: "user"}) %}  
+{% endif%}
+{{this.registerJs("HomeController.listing();")}}
+{% set limit = 3 %}
+{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+{% set articles = articlesArr.articles %}
+
 <div class="page__body">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="page__body--wrapper">
-                    <div class="blog__wrapper image-covered" style="background-image: url('static/images/image1.jpg')">
+                    <div class="blog__wrapper image-covered" {% if mediaCoverImage is not empty %}style="background-image: url('{{mediaCoverImage}}')"{% endif %}>
                         <div class="blog__wrapper__userInfo">
-                            <div class="blog__wrapper__userInfo--title">Christine Lagarde</div>
-                            <div class="blog__wrapper__userInfo--description">Passionate about the intersection of public policy and economics.</div>
+                            <div class="blog__wrapper__userInfo--title">{{blogInfo.title}}</div>
+                            <div class="blog__wrapper__userInfo--description">{{blogInfo.shortDescription}}</div>
                             <div class="blog__wrapper__userInfo--social">
-                                <a href="javascript:;" class="fa fa-linkedin-square"></a>
-                                <a href="javascript:;" class="fa fa-twitter"></a>
+                                {% if blogInfo.settings.social['linkedin'] is not empty%}
+                                    <a href="{{blogInfo.settings.social['linkedin']}}" class="fa fa-linkedin-square" target="_blank"></a>
+                                {% endif %}
+                                
+                                {% if blogInfo.settings.social['twitter'] is not empty%}
+                                    <a href="{{blogInfo.settings.social['twitter']}}" class="fa fa-twitter" target="_blank"></a>
+                                {% endif %}
                             </div>
                         </div>
+                        {% set userInfo = _Blog.getAuthors({'id': blogInfo.id})%}
+                        {{_AppHelper.printArray(userInfo)}}
+                        {% set mediaThumbImage = _Media.getMediaUrl(userInfo[0].profileMedia, 600, 600, {crop:"thumb", gravity:"face", type: "user"}) %} 
                         <div class="blog__wrapper__userDetail">
                             <div class="blog__wrapper__userDetail__profile">
-                                <div class="blog__wrapper__userDetail__profile--image image-covered" style="background-image: url('static/images/icons/avatar.png')"></div>
+                                <div class="blog__wrapper__userDetail__profile--image image-covered" style="background-image: url({{mediaThumbImage}})"></div>
                                 <div class="blog__wrapper__userDetail__profile--content">
-                                    <div class="blog__wrapper__userDetail__profile--content--title">Christine Lagarde</div>
+                                    <div class="blog__wrapper__userDetail__profile--content--title">{{blogInfo.owner.name | raw}}</div>
                                     <div class="blog__wrapper__userDetail__profile--content--des">
-                                        <span>Economist</span><span>Leader</span><span>Thinker</span>
+                                        <span>{{userInfo.additionalInfo.short_position}}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="blog__wrapper__userDetail--content">
-                                <p>Christine Madeleine Odette Lagarde  is a French lawyer and politician who has been the Managing Director (MD) of the International Monetary Fund (IMF) since 5 July 2011.</p>
-                                <p>Previously, she held various ministerial posts in the French government: she was Minister of Economic Affairs, Finance and Employment, Minister of Agriculture and Fishing and Minister of Trade in the government of Dominique de Villepin. Lagarde was the first woman to become finance minister of a G8 economy and is the first woman to head the IMF. A noted anti-trust and labour lawyer, Lagarde was the first female chair of the international law firm Baker & McKenzie.</p>
+                                <p>{{userInfo.additionalInfo.long_position}}</p>
                             </div>
                         </div>
                     </div>

@@ -18,6 +18,24 @@
         "cta" : {
             "keywords" : {
             }
+        },
+        "user": {
+            "extendedAttributes": [
+                {
+                    "label" : "Short Position",
+                    "name": "short_position",
+                    "type": "inputbox",
+                    "placeholder" : "Enter Position",
+                    "required": false
+                },
+                {
+                    "label" : "Long Position",
+                    "name": "long_position",
+                    "type": "textarea",
+                    "placeholder" : "Enter Position",
+                    "required": false
+                }
+            ]
         }
     }
 }
