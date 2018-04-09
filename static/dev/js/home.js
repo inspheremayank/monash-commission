@@ -36,8 +36,8 @@ HomeController.Listing = (function ($) {
                             ? $(obj).attr('title', 'Un-Pin Article')
                             : $(obj).attr('title', 'Pin Article');
                     (status == 1)
-                            ? $(obj).find('i').first().html('UN-PIN')
-                            : $(obj).find('i').first().html('PIN');
+                            ? $(obj).find('i').first().html('Un-Pin')
+                            : $(obj).find('i').first().html('Pin');
                     var message = (status == 1)
                             ? 'Article pinned successfully'
                             : 'Article unpinned successfully';
