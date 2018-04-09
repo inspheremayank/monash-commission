@@ -11,7 +11,7 @@ include("includes/_global-Head.php");
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="page__body--wrapper" style="height: 1800px;">
+                <div class="page__body--wrapper">
                     <div class="card-wrap">
                         <div class="row">
                             <div class="card__view col-12 card__view-full">
