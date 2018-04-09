@@ -1,0 +1,39 @@
+{% set ctaBackgroundImage = network.templatePath~"/static/images/demo.jpg"%}
+{% if keyword is defined and keyword is not empty %}
+    {% set cta = _CallToAction.getKeywordBasedCTA(keyword)%}
+    {% if cta is defined and cta|length > 0 %}
+        {% if cta.id is defined and cta.id is not empty %}            
+            {% if(cta.media['id'] is defined and cta.media['id'] is not empty) %}
+                {% set ctaBackgroundImage = _Media.getMediaUrl(cta.media,0,0,{'crop': 'fill'}) %}
+            {% endif %}
+            {{this.registerCss("
+                .cta_block_"~cta.id~" .button {
+                    border-color: "~cta.button['backgroundColor']~";
+                    background: "~cta.button['backgroundColor']~"
+                }
+                .cta_block_"~cta.id~" .button:hover {
+                    color: "~cta.button['backgroundColor']~";
+                    border-color: "~cta.button['backgroundColor']~";
+                    background: none repeat scroll 0 0
+                } 
+            ")}}
+            <div class="col-12">
+                <div class="cta-wrap__main" {% if ctaBackgroundImage is not empty or cta.backgroundColor is not empty %} style="{{ (ctaBackgroundImage is not empty) ? 'background-image: url('~ctaBackgroundImage~');' : ''}}{{ (cta.backgroundColor is not empty) ? 'background-color: '~cta.backgroundColor~';' : ''}}"{% endif %}>
+                    <div class="cta-wrap__main--title">{{cta.title |raw}}</div>
+                    <div class="cta-wrap__main--description">{{cta.description |raw}}</div>
+                    <div class="cta-wrap__main__input-form">
+                        <form action="javascript:;">
+                            <div class="form-group">
+                                <label class="sr-only">Email</label>
+                                <input type="email" name="email" required/>
+                            </div>
+                            {% if cta.button.text is defined and cta.button.text is not empty %}
+                                <button class="button button--small button--white upper">{{cta.button['text'] |raw}}</button>
+                            {% endif %}                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endif %}

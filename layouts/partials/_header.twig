@@ -44,8 +44,11 @@
                                         <li class="header__main__navigation--items">
                                             <a href="{{menuItems[i].link |raw}}" {% if menuItems[i].target != "" %}target="{{menuItems[i].target}}"{% endif %} class="header__main__navigation--links">
                                                 <div class="user--image image-covered" style="background-image:url('{{blogThumbImage}}')"></div>
-                                                <div class="user--title">
-                                                    {{menuItems[i].blogTitle | split(' ')[0]}} <span class="user--title--break"> {{menuItems[i].blogTitle | split(' ')[1]}}</span>
+                                                <div class="user--title {% if menuItems[i].blogTitle | split(' ')[1] is defined and menuItems[i].blogTitle | split(' ')[1] is not empty %}multiple{% endif %}">
+                                                    {{menuItems[i].blogTitle | split(' ')[0]}}
+                                                    {% if menuItems[i].blogTitle | split(' ')[1] is defined and menuItems[i].blogTitle | split(' ')[1] is not empty%}
+                                                    <span class="user--title--break"> {{menuItems[i].blogTitle | split(' ')[1]}}</span>
+                                                    {% endif %}
                                                     <div class="user--line-bar" {% if menuBlogData.featuredColor is defined and menuBlogData.featuredColor is not empty %} style="background-color: {{menuBlogData.featuredColor}}" {% endif %}></div>
                                                 </div>
                                             </a>
