@@ -46,7 +46,7 @@
                                                 <div class="user--image image-covered" style="background-image:url('{{blogThumbImage}}')"></div>
                                                 <div class="user--title">
                                                     {{menuItems[i].blogTitle | split(' ')[0]}} <span class="user--title--break"> {{menuItems[i].blogTitle | split(' ')[1]}}</span>
-                                                    <div class="user--line-bar" {% if menuBlogData.additionalInfo.color is defined and menuBlogData.additionalInfo.color is not empty %} style="background-color: {{menuBlogData.additionalInfo.color}}" {% endif %}></div>
+                                                    <div class="user--line-bar" {% if menuBlogData.featuredColor is defined and menuBlogData.featuredColor is not empty %} style="background-color: {{menuBlogData.featuredColor}}" {% endif %}></div>
                                                 </div>
                                             </a>
                                         </li>

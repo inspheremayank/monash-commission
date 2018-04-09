@@ -18,17 +18,6 @@
         "cta" : {
             "keywords" : {
             }
-        },
-        "blog": {
-            "extendedAttributes": [
-                {
-                    "label" : "Color",
-                    "name": "color",
-                    "type": "inputbox",
-                    "placeholder" : "Enter color code (e.g. #000000)",
-                    "required": false
-                }
-            ]
         }
     }
 }
