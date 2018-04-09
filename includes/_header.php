@@ -85,6 +85,7 @@
                                 <div class="input-group">
                                     <input type="text" placeholder="Diplomacy in the middle east" class="input-field">
                                     <button class="search-button"><span class="fa fa-search"></span></button>
+                                    <button class="close-button"><span class="fa fa-close"></span></button>
                                 </div>
                             </div>
                             <div class="header__main__icons--list">
