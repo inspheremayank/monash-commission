@@ -91,7 +91,8 @@ HomeController.Listing = (function ($) {
     };
     
     var addDotClass = function() {
-        $('.text__dotdot').ellipsis({
+        if ($(window).width() < 768) {
+            $('.text__dotdot').ellipsis({
             responsive: true,
             lines: 3
         });
@@ -99,48 +100,9 @@ HomeController.Listing = (function ($) {
             responsive: true,
             lines: 2
         });
+        } 
     }
     
-//    var excerptContentSlide = function() {
-//        $(".excerpt-slideUp").each(function() {
-//            var userHeight = $(this).find('.content__section-userInfo').outerHeight(true);
-//            var headingHeight = $(this).find('.content__section-heading').outerHeight(true);
-//            var totalHeight = parseInt(userHeight) + parseInt(headingHeight) + 45;
-//            $(this).find('.content__section').css('height', totalHeight + 'px');
-//        });
-//
-//        var reqObj = null;
-//        $(".excerpt-slideUp").hover(
-//            function () {
-//                var elem = $(this);
-//
-//                var contentSection = $(elem).find('.content__section');
-//                var contentSectionDescription = $(elem).find('.content__section-description');
-//                var content = contentSectionDescription.html(); 
-//
-//                if (!elem.is(reqObj)) {
-//                    reqObj = elem;
-//                    contentHeight = contentSection.outerHeight(true);
-//                }    
-//
-//                if ($.trim(content) != '') {
-//                    contentSectionDescription.removeClass('active');
-//                    var height = contentSectionDescription.outerHeight(true);   
-//                    var calHeight = parseInt(contentHeight) + parseInt(height);
-//                    contentSection.outerHeight(calHeight+"px");
-//                    contentSectionDescription.addClass('active');
-//                }
-//            },
-//            function () {
-//                var elem = $(this);
-//                var contentSection = $(elem).find('.content__section');
-//                var contentSectionDescription = $(elem).find('.content__section-description');
-//                contentSection.outerHeight(contentHeight+"px");
-//                contentSectionDescription.removeClass('active');
-//            }
-//        );
-//    };
-
     var bindSocialPostPopup = function () {
 
         $('body').on('click', 'div.admin-actions__action--edit', function (e) {
@@ -203,8 +165,7 @@ HomeController.Listing = (function ($) {
 
     var attachEvents = function () {
         bindSocialPostPopup();
-//        excerptContentSlide();
-          addDotClass();
+
         if (_appJsConfig.isUserLoggedIn === 1 && _appJsConfig.userHasBlogAccess === 1) {
             //Bind pin/unpin article event
             bindPinUnpinArticle();
@@ -328,7 +289,7 @@ HomeController.Listing = (function ($) {
 
                             videoPlayFancybox();
 
-//                            excerptContentSlide();
+
                             addDotClass();
                             bindSocialPostPopup();
                         },
@@ -441,7 +402,6 @@ HomeController.Listing = (function ($) {
                             initSwap();
                         }
                         videoPlayFancybox();
-                        addDotClass();
                         bindSocialPostPopup();
                     }
                 },
