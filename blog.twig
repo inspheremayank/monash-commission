@@ -11,7 +11,7 @@
     {% set mediaThumbImage = _Media.getMediaUrl(blogInfo.media['thumb'], 600, 600, {crop:"thumb", gravity:"face", type: "user"}) %}  
 {% endif%}
 {{this.registerJs("HomeController.listing();")}}
-{% set limit = 3 %}
+{% set limit = 9 %}
 {% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 {% set articles = articlesArr.articles %}
 
@@ -34,65 +34,29 @@
                                 {% endif %}
                             </div>
                         </div>
-                        {% set userInfo = _Blog.getAuthors({'id': blogInfo.id})%}
-                        {{_AppHelper.printArray(userInfo)}}
-                        {% set mediaThumbImage = _Media.getMediaUrl(userInfo[0].profileMedia, 600, 600, {crop:"thumb", gravity:"face", type: "user"}) %} 
                         <div class="blog__wrapper__userDetail">
                             <div class="blog__wrapper__userDetail__profile">
                                 <div class="blog__wrapper__userDetail__profile--image image-covered" style="background-image: url({{mediaThumbImage}})"></div>
                                 <div class="blog__wrapper__userDetail__profile--content">
-                                    <div class="blog__wrapper__userDetail__profile--content--title">{{blogInfo.owner.name | raw}}</div>
+                                    <div class="blog__wrapper__userDetail__profile--content--title">{{blogInfo.title | raw}}</div>
                                     <div class="blog__wrapper__userDetail__profile--content--des">
-                                        <span>{{userInfo.additionalInfo.short_position}}</span>
+                                        <span>{{blogInfo.additionalInfo.core_experties}}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="blog__wrapper__userDetail--content">
-                                <p>{{userInfo.additionalInfo.long_position}}</p>
+                                <p>{{blogInfo.additionalInfo.biography}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-wrap">
                     <div class="row">
-                        <div class="card__view col-12 card__view-full">
-                            <div class="">
-                                <a href="javascript:;" class="card__view--items">
-                                    <figure class="embed-responsive embed-responsive-16by9">
-                                        <img src="static/images/image1.jpg" alt="image" class="embed-responsive-item" />
-                                        <div class="video-play"></div>
-                                    </figure>
-                                    <div class="optionSet">
-                                        <ul>
-                                            <li>Hide <span class="fa fa-eye-slash"></span></li>
-                                            <li>Pin <span class="fa fa-map-marker"></span></li>
-                                            <li>Edit <span class="fa fa-cog"></span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="card__view--content">
-                                        <div class="content__section">
-                                            <div class="social-icons"></div>
-                                            <div class="content__section-category upper">Finance</div>
-                                            <div class="content__section__head">
-                                                <div class="content__section__head--heading">A lose-lose trade war looms between America and China, and everyone suffers</div>
-                                                <div class="content__section__head--image">
-                                                    <figure class="image-covered" style="background-image: url('static/images/image1.jpg')"></figure>
-                                                    <div class="video-play"></div>
-                                                </div>
-                                            </div>
-                                            <div class="content__section-description text__dotdot">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
-                                            <div class="content__section-userInfo"> 
-                                                <div class="content__section-userInfo-image image-covered" style="background-image: url('static/images/test-image.jpg')"></div> 
-                                                <div class="content__section-userInfo-content"> 
-                                                    <span>Rebekah Brown</span> 
-                                                    <span class="designation">Director of Monash Sustainable Development Institute</span> 
-                                                </div> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        {% for i in 0..8 %}
+                            {% if articles[i] is defined %}
+                                {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'card__view col-12 card__view-full'}) | raw}}
+                            {% endif %}
+                        {% endfor %}                        
                     </div>
                 </div>
             </div>

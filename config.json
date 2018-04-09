@@ -36,6 +36,31 @@
                     "required": false
                 }
             ]
+        },
+        "blog": {
+            "extendedAttributes": [
+                {
+                    "label" : "Expertise",
+                    "name": "core_experties",
+                    "type": "inputbox",
+                    "placeholder" : "Enter comma seperated",
+                    "required": false
+                },
+                {
+                    "label" : "Available for comment on",
+                    "name": "available_comment",
+                    "type": "textarea",
+                    "placeholder" : "Enter One expertise per line",
+                    "required": false
+                },
+                {
+                    "label" : "Biography",
+                    "name": "biography",
+                    "type": "textarea",
+                    "placeholder" : "Enter biography",
+                    "required": false
+                }
+            ]
         }
     }
 }
