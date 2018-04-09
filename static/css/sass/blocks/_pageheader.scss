@@ -83,12 +83,15 @@
                         @include font-size(12);
                         @include margin-left(12);
                         @extend .font-medium;
-                        line-height: 1.5;
+                        line-height: 36px;
                         letter-spacing: 0.7px;
                         position: relative;
                         text-transform: uppercase;
                         &--break {
                             display: block;
+                        }
+                        &.multiple {
+                            line-height: 1.5; 
                         }
                     }
                     &--line-bar {

@@ -996,12 +996,14 @@ input.input--small36[type="text"], input.input--small36[type="password"], input.
           font-size: 0.75rem;
           line-height: 0.9rem;
           margin-left: 0.75rem;
-          line-height: 1.5;
+          line-height: 36px;
           letter-spacing: 0.7px;
           position: relative;
           text-transform: uppercase; }
           .header__main__navigation--links .user--title--break {
             display: block; }
+          .header__main__navigation--links .user--title.multiple {
+            line-height: 1.5; }
         .header__main__navigation--links .user--line-bar {
           background-color: #eff0f3;
           width: 46px;
