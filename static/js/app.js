@@ -1,6 +1,3 @@
-
-
-
 (function () {
     
     /***********************************/
@@ -62,6 +59,35 @@
         } else {
             searchBox.addClass('active');
         };
+    });
+    
+    $('.closeBtn').click(function(e) {
+        e.preventDefault();
+        $('.header__main__icons--search-box').removeClass('active');
+    });
+    
+    $('.textSearch').click(function(e) {
+        e.preventDefault();
+        var searchTerm = $('#textSearchBox').val().trim();
+        if (!searchTerm) {
+            return false;
+        } else {
+            window.location = encodeURI('/search?s=' + searchTerm);
+        }
+    });
+    
+    $('#headerSearchForm').keypress(function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            e.stopPropagation();
+            var searchTerm = $('#textSearchBox').val().trim();
+            $('#textSearchBox').val(searchTerm);
+            if (!searchTerm) {
+                return false;
+            } else {
+                window.location = encodeURI('/search?s=' + searchTerm);
+            }
+        }
     });
     
     //Function for card text truncate

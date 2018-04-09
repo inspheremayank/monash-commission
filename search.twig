@@ -1,0 +1,50 @@
+{# Search Twig template #}
+{{ set(this, 'title', 'Search') }}
+{% set network = _Network.getNetworkData() %}
+{{this.registerMetaTag({name: 'robots', content: 'noindex'})}}
+
+{% set limit = 10 %}
+{% set articles = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search, 'meta_info': meta_info, 'keyword':keyword}) %}
+{% set articleUsers = _Search.searchArticles({'search': search, 'getUsers': 1, 'meta_info': meta_info, 'keyword':keyword}) %}
+{% set articlesCount = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search, 'countOnly' : 1, 'meta_info': meta_info, 'keyword':keyword}) %}
+
+<div class="page__body">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page__body--wrapper search">
+                    <div class="search__content">Search results for: <span>{{search}}</span></div>
+                    <div class="card-wrap">
+                        <div class="row">
+                            {% for i in 0..9 %}
+                            {% if articles[i] is defined %}
+                                {{this.render('partials/_single-article.twig', {article: articles[i], 'position': i+1, class: 'card__view col-12 card__view-full'}) | raw}}
+                            {% endif %}
+                        {% endfor %} 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="cta-wrap cta-wrap__subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-wrap__main">
+                        <div class="cta-wrap__main--title">The Monash Commission</div>
+                        <div class="cta-wrap__main--description">Subscribe to receive essays striaght to your inbox.</div>
+                        <div class="cta-wrap__main__input-form">
+                            <div class="form-group">
+                                <label class="sr-only">Email</label>
+                                <input type="email" />
+                            </div>
+                            <button class="button button--small button--white upper">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
