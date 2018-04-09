@@ -69,7 +69,7 @@ var systemCardTemplate =
             '<a href="{{url}}" class="card__view--items">'+
                 
                     '{{#if hasMedia}}'+
-                    '<figure class="embed-responsive embed-responsive-16by9">'+
+                    '<figure class="embed-responsive embed-responsive-16by9 flex-last">'+
                             '<img class="embed-responsive-item" src="{{imageUrl}}" alt="image" />'+
                             '<div class="video-play"></div>'+
                     '</figure>'+
@@ -91,10 +91,10 @@ var systemCardTemplate =
                             '</ul>'+
                         '</div>'+
                     '{{/if}}'+
-                    '<div class="card__view--content">'+
+                    '<div class="card__view--content flex-last">'+
                         '<div class="content__section">'+
                             '<div class="social-icons"></div>'+
-                            '<div class="content__section-category upper">{{label}}</div>'+
+                            '<div class="content__section--category upper">{{label}}</div>'+
                             '<div class="content__section__head">'+
                                 '<div class="content__section__head--heading">{{title}}</div>'+
                                 '<div class="content__section__head--image">'+
@@ -104,11 +104,11 @@ var systemCardTemplate =
                                     '<div class="video-play"></div>'+
                                 '</div>'+
                             '</div>'+
-                            '<div class="content__section-description text__dotdot">{{excerpt}}</div>'+
+                            '<div class="content__section--description text__dotdot">{{excerpt}}</div>'+
                             '<div class="content__section-userInfo">'+
                                 '<div class="content__section-userInfo-image image-covered" style="background-image: url({{profileImage}})"></div>'+ 
                                 '<div class="content__section-userInfo-content">'+ 
-                                    '<span>{{article.createdBy.displayName}}</span>'+ 
+                                    '<span class="title">{{article.createdBy.displayName}}</span>'+ 
                                     '<span class="designation">{{article.createdBy.bio}}</span>'+ 
                                 '</div>'+ 
                             '</div>'+
@@ -125,7 +125,7 @@ var socialCardTemplate =
 
 
                     '{{#if social.hasMedia}}'+
-                        '<figure class="embed-responsive embed-responsive-16by9">'+
+                        '<figure class="embed-responsive embed-responsive-16by9 flex-last">'+
                                 '<img class="embed-responsive-item" src="{{imageUrl}}" alt="image" />'+
                                 '<div class="video-play"></div>'+
                         '</figure>'+
@@ -147,10 +147,10 @@ var socialCardTemplate =
                             '</ul>'+
                         '</div>'+
                     '{{/if}}'+
-                    '<div class="card__view--content">'+
+                    '<div class="card__view--content flex-last">'+
                         '<div class="content__section">'+
                             '<div class="social-icons"></div>'+
-                            '<div class="content__section-category upper">{{social.source}}</div>'+
+                            '<div class="content__section--category upper">{{social.source}}</div>'+
                             '<div class="content__section__head">'+
                                 '<div class="content__section__head--heading">{{social.blog.title}}</div>'+
                                 '<div class="content__section__head--image">'+
@@ -160,11 +160,11 @@ var socialCardTemplate =
                                     '<div class="video-play"></div>'+
                                 '</div>'+
                             '</div>'+
-                            '<div class="content__section-description text__dotdot">{{social.content}}</div>'+
+                            '<div class="content__section--description text__dotdot">{{social.content}}</div>'+
                             '<div class="content__section-userInfo">'+
                                 '<div class="content__section-userInfo-image image-covered" style="background-image: url({{profileImage}})"></div>'+ 
                                     '<div class="content__section-userInfo-content">'+ 
-                                        '<span>{{social.user.name}}</span>'+ 
+                                        '<span class="title">{{social.user.name}}</span>'+ 
                                         '<span class="designation">{{createdBy.bio}}</span>'+ 
                                     '</div> '+
                                 '</div>'+
